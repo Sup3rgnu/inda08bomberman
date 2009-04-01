@@ -8,9 +8,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		// Hej Caj 
 		// Hej Svejs
-		System.out.printf("Inda");
-		System.out.printf("är");
-		System.out.printf("roligt");
+		System.out.printf("Inda är roligt och det går man på!\n");
 	}
 
 }
