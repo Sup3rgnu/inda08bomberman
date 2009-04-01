@@ -9,6 +9,8 @@ public class Main {
 		// Hej Caj 
 		// Hej Svejs
 		System.out.printf("Inda");
+		System.out.printf("är");
+		System.out.printf("roligt");
 	}
 
 }
