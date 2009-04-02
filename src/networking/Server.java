@@ -1,32 +1,24 @@
 package networking;
 
-import java.io.DataInputStream;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * A Server connection.
+ * @author caj.hofberg
+ *
+ */
 public class Server {
-
+	/**
+	 * Create a server.
+	 */
 	Server() {
 		try {
 			ServerSocket serverSocket = new ServerSocket(Network.GAMEPORT);
 			
 			Socket server = serverSocket.accept();
-			
-			/* Receive messages */
-			DataInputStream networkInput;
-			networkInput = new DataInputStream(server.getInputStream());
-			
-	    	/* Send messages */
-			PrintStream networkOutput;
-			networkOutput = new PrintStream(server.getOutputStream());
-
-			/* Close connection */
-			networkInput.close();
-			networkOutput.close();
-			serverSocket.close();
-			server.close();
+			Network.handleTraffic(server);
 		}
 		catch (IOException e) {
            System.err.println(e);
