@@ -1,3 +1,5 @@
+import drawing.DrawWindow;
+
 
 public class Main {
 
@@ -8,7 +10,7 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO:s, format: TODO: <thing to do> (<package>, <assigned-to>
 		
-		// TODO: Draw the window (drawing, Jonathan)
+		DrawWindow.DrawWindowmain();
 		// TODO: Initialize map (mapping, Mikael)
 		// TODO: Draw the map (drawing, Jonathan)
 		// TODO: Ask for IP-address(-es) in a dialog
@@ -20,6 +22,7 @@ public class Main {
 		// TODO: Collect the statistics, i.e. high score (fileHandling, Caj)
 		
 		// TODO: Append these todo:s to the comment above main()
+		
 	}
 
 }

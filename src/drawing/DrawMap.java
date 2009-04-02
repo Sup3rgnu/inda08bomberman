@@ -1,5 +1,5 @@
 package drawing;
 
-public class Draw {
+public class DrawMap {
 
 }
