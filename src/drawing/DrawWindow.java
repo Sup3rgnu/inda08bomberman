@@ -13,7 +13,6 @@ public class DrawWindow extends JFrame {
 	private static final long serialVersionUID = 7669473739626066784L;
 	static final int WIDTH = 640;
 	static final int HEIGHT = 480;
-	
 	class Bob { int x, y, w, h, dx, dy; }
 	Canvas canvas; // Our drawing component
 	Vector< Point > circles = new Vector< Point >(); // Circles
@@ -31,10 +30,10 @@ public class DrawWindow extends JFrame {
     pack();
     
     
-    
-    bob.x = bob.y = 250;
+    bob.x = bob.y = 0;
     bob.dx = bob.dy = 5;
     bob.w = bob.h = 25;
+
     }
 	
 	public void run() {
@@ -50,7 +49,7 @@ public class DrawWindow extends JFrame {
     Graphics2D g2d = null;
     Color background = Color.BLACK;
     
-    while( true ) {
+    
       try {
       
        
@@ -62,15 +61,18 @@ public class DrawWindow extends JFrame {
         
         // Draw help
         g2d.setColor(  Color.GREEN );
-        g2d.drawString( "-------------", 20, 20 );
-        g2d.drawString( "Bomberman", 20, 32 );
-        g2d.drawString( "Fönster", 20, 44 );
-        g2d.drawString( "-------------", 20, 56 );
+        
+        g2d.drawString( "--------------------------", 20, 20 );
+        g2d.drawString( "New Game", 20, 32 );
+        g2d.drawString( "Bomberman.exe", 20, 44 );
+        g2d.drawString( "Press Q to disconnect", 20, 56 );
+        g2d.drawString( "--------------------------", 20, 20 );
                
+
         // Draw random circles
-        g2d.setColor( Color.GREEN );
+        g2d.setColor( Color.MAGENTA );
         for( Point p : circles ) {
-          g2d.drawOval( p.x, p.y, 50, 50 );
+          g2d.drawOval( p.x, p.y, 25, 25 );
         }
         
         // Draw bob
@@ -97,12 +99,10 @@ public class DrawWindow extends JFrame {
           g2d.dispose();
       	}
     }
-	}
-
-	
+		
 	public static void DrawWindowmain() {
 	DrawWindow dw = new DrawWindow();
-	dw.setTitle( "Simple Keyboard Input" );
+	dw.setTitle( "Bomberman" );
 	dw.setVisible( true );
 	dw.run();
     
