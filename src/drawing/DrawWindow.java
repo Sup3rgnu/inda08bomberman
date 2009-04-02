@@ -10,15 +10,16 @@ import javax.swing.JFrame;
 
 public class DrawWindow extends JFrame {
 
-  static final int WIDTH = 640;
-  static final int HEIGHT = 480;
-  class Bob { int x, y, w, h, dx, dy; }
-  Canvas canvas; // Our drawing component
-  Vector< Point > circles = new Vector< Point >(); // Circles
-  Bob bob = new Bob(); // Our rectangle
-  Random rand = new Random(); // Used for random circle locations
+	private static final long serialVersionUID = 7669473739626066784L;
+	static final int WIDTH = 640;
+	static final int HEIGHT = 480;
+	class Bob { int x, y, w, h, dx, dy; }
+	Canvas canvas; // Our drawing component
+	Vector< Point > circles = new Vector< Point >(); // Circles
+	Bob bob = new Bob(); // Our rectangle
+	Random rand = new Random(); // Used for random circle locations
 
-  public DrawWindow() {
+	public DrawWindow() {
   
     setIgnoreRepaint( true );
     setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
@@ -33,9 +34,9 @@ public class DrawWindow extends JFrame {
     bob.x = bob.y = 0;
     bob.dx = bob.dy = 5;
     bob.w = bob.h = 25;
-  }
+    }
 	
-  public void run() {
+	public void run() {
   
     canvas.createBufferStrategy( 2 );
     BufferStrategy buffer = canvas.getBufferStrategy();
@@ -93,16 +94,16 @@ public class DrawWindow extends JFrame {
           graphics.dispose();
         if( g2d != null ) 
           g2d.dispose();
-      }
+      	}
     }
-  }
+	}
 
 	
-  public static void DrawWindowmain() {
+	public static void DrawWindowmain() {
 	DrawWindow dw = new DrawWindow();
 	dw.setTitle( "Simple Keyboard Input" );
 	dw.setVisible( true );
 	dw.run();
     
-  }
+  	}
 }
