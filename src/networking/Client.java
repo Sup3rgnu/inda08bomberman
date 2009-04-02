@@ -2,6 +2,7 @@ package networking;
 
 import java.io.DataInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
 
@@ -14,9 +15,17 @@ public class Client {
 			DataInputStream networkInput;
 	    	networkInput = new DataInputStream(client.getInputStream());
 	    	
-	    	/* Send messages */
-	        PrintStream networkOutput;
-	        networkOutput = new PrintStream(client.getOutputStream());
+			/* Send messages */
+	    	PrintStream networkOutput = new PrintStream(client.getOutputStream());
+    		InputStreamReader userInput = new InputStreamReader(System.in);
+	    	while (Network.online) {
+	    		networkOutput.print(userInput.read());
+	    		networkOutput.flush();			// Send one-char packets for speed
+	    		if (userInput.read() == 'q') {	// Disconnect
+	    			break;
+	    		}
+	    		userInput.reset();	// TODO: Check
+	    	}
 	        
 	        /* Close connection */
 	        networkInput.close();
