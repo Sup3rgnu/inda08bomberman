@@ -26,11 +26,8 @@ abstract public class Network {
 	 */
 	static void handleTraffic(Socket socket) {
 		try {
-			/* Receive messages */
-			DataInputStream networkInput;
-	    	networkInput = new DataInputStream(socket.getInputStream());
-	    	
 			/* Send messages */
+			DataInputStream networkInput = new DataInputStream(socket.getInputStream());
 	    	PrintStream networkOutput = new PrintStream(socket.getOutputStream());
     		InputStreamReader userInput = new InputStreamReader(System.in);
 	    	while (Network.online) {
@@ -38,6 +35,9 @@ abstract public class Network {
 	    		networkOutput.flush();			// Send one-char packets for speed
 	    		if (userInput.read() == 'q') {	// Disconnect
 	    			break;
+	    		} else {
+	    			/* Receive messages  - what does our opponent do? */
+	    			//TODO: Send a char to a parser
 	    		}
 	    		userInput.reset();	// TODO: Check if it works
 	    	}
