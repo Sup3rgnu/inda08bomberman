@@ -30,15 +30,20 @@ abstract public class Network {
 		try {
 			drawing.Popup.popupMessage("Handling traffic");
 			
-			/* Send messages */
+			// Network in/out
 			DataInputStream networkInput = new DataInputStream(socket.getInputStream());
 	    	PrintStream networkOutput = new PrintStream(socket.getOutputStream());
+	    	
+	    	// Keyboard stream
     		InputStreamReader userInput = new InputStreamReader(System.in);
+    		
+    		/* Send & receive messages */
 	    	while (online) {
 	    		networkOutput.print(userInput.read());
 	    		networkOutput.flush();			// Send one-char packets for speed
 	    		drawing.Popup.popupMessage("Sent a package");
-	    		if (userInput.read() == 'q') {	// Disconnect
+	    		if (userInput.read() == 'q' || userInput.read() == 'Q') {	
+	    			/* Disconnect */
 	    			drawing.Popup.popupMessage("Disconnected");
 	    			break;
 	    		} else {
@@ -46,7 +51,7 @@ abstract public class Network {
 	    			KeyboardParser parser = new KeyboardParser();
 	    			parser.netParse((char) userInput.read());	// NOTE: Cast!
 	    		}
-	    		userInput.reset();	// TODO: Check if it works
+	    		userInput.reset();	// TODO: Check if this works
 	    	}
 	        
 	        /* Close connection */
