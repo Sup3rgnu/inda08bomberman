@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
 
+import mapping.KeyboardParser;
+
 /**
  * Properties and functions representing the network protocol.
  * @author caj.hofberg
@@ -37,7 +39,8 @@ abstract public class Network {
 	    			break;
 	    		} else {
 	    			/* Receive messages  - what does our opponent do? */
-	    			//TODO: Send a char to a parser
+	    			KeyboardParser parser = new KeyboardParser();
+	    			parser.netParse((char) userInput.read());	// NOTE: Cast!
 	    		}
 	    		userInput.reset();	// TODO: Check if it works
 	    	}
