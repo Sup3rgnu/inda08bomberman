@@ -1,7 +1,9 @@
 package mapping;
 
 public class KeyboardParser {
-	
-	//lala
-
+	void netParse(char c) {
+		if (c == 'a') {
+			// goLeft
+		}
+	}
 }
