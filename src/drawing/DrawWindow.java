@@ -1,9 +1,11 @@
 package drawing;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.*;
-import java.util.*;
+import java.awt.*;		// Includes many various classes
+import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.util.Random;
+import java.util.Vector;
+
 import javax.swing.JFrame;
 
 public class DrawWindow extends JFrame {
