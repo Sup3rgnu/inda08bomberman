@@ -17,9 +17,11 @@ abstract public class Server {
 	
 	public static void startServer() {
 		try {
+			drawing.Popup.popupMessage("Trying to start server");
 			ServerSocket serverSocket = new ServerSocket(Network.GAMEPORT);
 			
 			Socket server = serverSocket.accept();
+			drawing.Popup.popupMessage("Connection accepted");
 			Network.handleTraffic(server);
 		}
 		catch (IOException e) {

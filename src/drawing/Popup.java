@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 abstract public class Popup {
 
-	static public void popupMessage(){
-		JOptionPane.showMessageDialog(null, "You win!");
+	static public void popupMessage(String s){
+		JOptionPane.showMessageDialog(null, s);
 	}
 }

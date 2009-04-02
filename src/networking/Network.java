@@ -28,14 +28,18 @@ abstract public class Network {
 	 */
 	static void handleTraffic(Socket socket) {
 		try {
+			drawing.Popup.popupMessage("Handling traffic");
+			
 			/* Send messages */
 			DataInputStream networkInput = new DataInputStream(socket.getInputStream());
 	    	PrintStream networkOutput = new PrintStream(socket.getOutputStream());
     		InputStreamReader userInput = new InputStreamReader(System.in);
-	    	while (Network.online) {
+	    	while (online) {
 	    		networkOutput.print(userInput.read());
 	    		networkOutput.flush();			// Send one-char packets for speed
+	    		drawing.Popup.popupMessage("Sent a package");
 	    		if (userInput.read() == 'q') {	// Disconnect
+	    			drawing.Popup.popupMessage("Disconnected");
 	    			break;
 	    		} else {
 	    			/* Receive messages  - what does our opponent do? */
@@ -46,11 +50,13 @@ abstract public class Network {
 	    	}
 	        
 	        /* Close connection */
+	    	drawing.Popup.popupMessage("Closing connection");
 	        networkInput.close();
 			networkOutput.close();
 	        socket.close();
 	    } catch (IOException e) {
 			System.err.println(e);
+			drawing.Popup.popupMessage("IO Exception");
 		}
 	}
 }

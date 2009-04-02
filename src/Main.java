@@ -11,6 +11,8 @@ public class Main {
 		boolean isServer = true;
 		// TODO:s, format: TODO: <thing to do> (<package>, <assigned-to>
 		
+		drawing.Popup.popupMessage("Game starting");
+		
 		/* Draw the main window */
 		DrawWindow.DrawWindowmain();
 		
