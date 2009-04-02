@@ -1,5 +1,5 @@
 package dataCollecting;
 
-public class Player {
-
+abstract public class Player {
+	public static String name = "Noname";
 }
