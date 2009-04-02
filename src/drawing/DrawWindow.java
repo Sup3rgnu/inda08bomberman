@@ -13,6 +13,7 @@ public class DrawWindow extends JFrame {
 	private static final long serialVersionUID = 7669473739626066784L;
 	static final int WIDTH = 640;
 	static final int HEIGHT = 480;
+	
 	class Bob { int x, y, w, h, dx, dy; }
 	Canvas canvas; // Our drawing component
 	Vector< Point > circles = new Vector< Point >(); // Circles
@@ -31,7 +32,7 @@ public class DrawWindow extends JFrame {
     
     
     
-    bob.x = bob.y = 0;
+    bob.x = bob.y = 250;
     bob.dx = bob.dy = 5;
     bob.w = bob.h = 25;
     }
@@ -61,15 +62,15 @@ public class DrawWindow extends JFrame {
         
         // Draw help
         g2d.setColor(  Color.GREEN );
-        g2d.drawString( "Use arrow keys to move rect", 20, 20 );
-        g2d.drawString( "Press SPACE to add circles", 20, 32 );
-        g2d.drawString( "Press C to clear circles", 20, 44 );
-        g2d.drawString( "Press ESC to exit", 20, 56 );
+        g2d.drawString( "-------------", 20, 20 );
+        g2d.drawString( "Bomberman", 20, 32 );
+        g2d.drawString( "Fönster", 20, 44 );
+        g2d.drawString( "-------------", 20, 56 );
                
         // Draw random circles
-        g2d.setColor( Color.MAGENTA );
+        g2d.setColor( Color.GREEN );
         for( Point p : circles ) {
-          g2d.drawOval( p.x, p.y, 25, 25 );
+          g2d.drawOval( p.x, p.y, 50, 50 );
         }
         
         // Draw bob
