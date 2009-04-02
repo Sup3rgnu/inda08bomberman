@@ -10,7 +10,9 @@ import networking.Network;
  *
  */
 public class Client {
-	Client() {
+	Client() {}
+	
+	static public void startClient() {
 		Socket client;
 		try {
 			client = new Socket(Network.serverIP, Network.GAMEPORT);

@@ -9,11 +9,13 @@ import java.net.Socket;
  * @author caj.hofberg
  *
  */
-public class Server {
+abstract public class Server {
 	/**
 	 * Create a server.
 	 */
-	Server() {
+	Server() {}
+	
+	public static void startServer() {
 		try {
 			ServerSocket serverSocket = new ServerSocket(Network.GAMEPORT);
 			

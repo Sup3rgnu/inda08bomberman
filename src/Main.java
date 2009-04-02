@@ -8,14 +8,23 @@ public class Main {
 	 * @author C,M,J
 	 */
 	public static void main(String[] args) {
+		boolean isServer = true;
 		// TODO:s, format: TODO: <thing to do> (<package>, <assigned-to>
 		
+		/* Draw the main window */
 		DrawWindow.DrawWindowmain();
+		
 		// TODO: Initialize map (mapping, Mikael)
 		// TODO: Draw the map (drawing, Jonathan)
 		// TODO: Ask for IP-address(-es) in a dialog
-		// TODO: Connect (networking, Caj)
-		// TODO: Send/retrieve a packet (networking, Caj)
+		
+		/* Start a server or a client */
+		if (isServer) {
+			networking.Server.startServer();
+		} else {
+			networking.Client.startClient();
+		}
+		
 		// TODO: Change data as packets request (dataCollecting, Mikael)
 		// TODO: Change map according to network packages (mapping, Mikael)
 		// TODO: Draw new map alt. draw changed parts (drawing, Jonathan)
