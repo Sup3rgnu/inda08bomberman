@@ -6,6 +6,11 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
 
+/**
+ * Properties and functions representing the network protocol.
+ * @author caj.hofberg
+ *
+ */
 abstract public class Network {
 	static final int GAMEPORT = 9889;	// Does not seem to be used
 	static String serverIP;
@@ -15,6 +20,8 @@ abstract public class Network {
 	
 	/**
 	 * Once a socket has been created, this is common to both servers and clients.
+	 * This method was created to have peers rather than servers/clients. Peers
+	 * are preferred as the client/server solution could be unfair to one party.
 	 * @param socket
 	 */
 	static void handleTraffic(Socket socket) {
@@ -32,7 +39,7 @@ abstract public class Network {
 	    		if (userInput.read() == 'q') {	// Disconnect
 	    			break;
 	    		}
-	    		userInput.reset();	// TODO: Check
+	    		userInput.reset();	// TODO: Check if it works
 	    	}
 	        
 	        /* Close connection */
