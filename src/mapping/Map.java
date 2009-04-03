@@ -21,7 +21,7 @@ public class Map {
 			   for (int j=0; j < WIDTH; j++)
 			      board[i][j] = FREE;
 
-		// Outer boarder for the board with unbreakable pieces 
+		// Outer border for the board with unbreakable pieces 
 		
 		for (int i=0; i <= 0; i++)
 			for (int j=0; j < WIDTH; j++)

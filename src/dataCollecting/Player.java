@@ -9,7 +9,7 @@ public class Player {
 	private String name = "Noname";
 	private int score = 0;
 	
-	public void setName() {
+	public static void setName() {
 		//TODO: fix input popup asking for name
 	}
 	/**
@@ -21,6 +21,7 @@ public class Player {
 		this.name = name;
 	}
 	public String getName() {
+		System.out.println(name); // test
 		return name;
 	}
 	

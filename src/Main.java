@@ -1,6 +1,7 @@
 import drawing.DrawWindow;
 
 public class Main {
+	
 
 	/**
 	 * @param args
@@ -10,7 +11,11 @@ public class Main {
 		boolean isServer = true;
 		// TODO:s, format: TODO: <thing to do> (<package>, <assigned-to>
 		
-		drawing.Popup.popupMessage("Game starting");
+		
+		drawing.Popup.popupMessage("Game starting");	
+		
+		// Just a test, not supposed to be called from here. Check out the Popup class!
+		drawing.Popup.createPlayers(2); 
 		
 		/* Draw the main window */
 		DrawWindow.DrawWindowmain();
@@ -18,6 +23,7 @@ public class Main {
 		// TODO: Initialize map (mapping, Mikael)
 		// TODO: Draw the map (drawing, Jonathan)
 		// TODO: Ask for IP-address(-es) in a dialog
+		
 		
 		/* Start a server or a client */
 		if (isServer) {
