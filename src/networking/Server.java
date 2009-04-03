@@ -18,13 +18,13 @@ abstract public class Server {
 	
 	public static void startServer() {
 		try {
-			drawing.Popup.popupMessage("Trying to start server");
+			System.out.println("Trying to start server");
 			ServerSocket serverSocket = new ServerSocket(Network.GAMEPORT);
 			
-			drawing.Popup.popupMessage("Server started. Opponents may now join");
+			System.out.println("Server started. Opponents may now join");
 			// TODO: refresh window
 			Socket server = serverSocket.accept();
-			drawing.Popup.popupMessage("Connection accepted");
+			System.out.println("Connection accepted");
 			Network.handleTraffic(server);
 		} catch (SocketException e) {
 			System.err.println(e);

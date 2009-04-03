@@ -46,7 +46,7 @@ public class KeyboardParser {
 		}else{
 			//doNothing
 			if (debugging ) {
-				drawing.Popup.popupMessage("Remote NO_KEY");
+				System.out.println("Remote NO_KEY");		// May spam
 			}
 		}
 	}
@@ -85,7 +85,7 @@ public class KeyboardParser {
 		}else{
 			//doNothing
 			if (debugging ) {
-				drawing.Popup.popupMessage("Local NO_KEY");
+				System.out.println("Local NO_KEY");			// May spam
 			}
 		}
 	}
