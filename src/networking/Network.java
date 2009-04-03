@@ -2,11 +2,8 @@ package networking;
 
 import java.io.DataInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
-
-import mapping.KeyboardParser;
 
 /**
  * Properties and functions representing the network protocol.
@@ -17,6 +14,9 @@ abstract public class Network {
 	static final int GAMEPORT = 9889;	// Does not seem to be used
 	static String serverIP;
 	public static boolean online = true;
+	
+	private static char nullChar = 'a';		// For no key pressed this time
+	public static char nextKey = nullChar;	// No key pressed yet
 	
 	Network() {}
 	
@@ -35,23 +35,28 @@ abstract public class Network {
 	    	PrintStream networkOutput = new PrintStream(socket.getOutputStream());
 	    	
 	    	// Keyboard stream
-    		InputStreamReader userInput = new InputStreamReader(System.in);
+    		//InputStreamReader userInput = new InputStreamReader(System.in);
     		
     		/* Send & receive messages */
 	    	while (online) {
-	    		networkOutput.print(userInput.read());
+	    		networkOutput.print(nextKey);
 	    		networkOutput.flush();			// Send one-char packets for speed
 	    		drawing.Popup.popupMessage("Sent a package");
-	    		if (userInput.read() == 'q' || userInput.read() == 'Q') {	
+	    		if (nextKey == 0) {		//TODO: should be q/Q
 	    			/* Disconnect */
 	    			drawing.Popup.popupMessage("Disconnected");
+	    			online = false;
 	    			break;
 	    		} else {
 	    			/* Receive messages  - what does our opponent do? */
-	    			KeyboardParser parser = new KeyboardParser();
-	    			parser.netParse((char) userInput.read());	// NOTE: Cast!
+	    			mapping.KeyboardParser parser = new mapping.KeyboardParser();
+	    			char incomingChar = networkInput.readChar();
+	    			if (incomingChar != nullChar) {
+	    				parser.netParse(incomingChar);
+	    			} else {
+	    				// Don't care
+	    			}
 	    		}
-	    		userInput.reset();	// TODO: Check if this works
 	    	}
 	        
 	        /* Close connection */
