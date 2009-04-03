@@ -3,8 +3,7 @@ package networking;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-
-import drawing.DrawWindow;
+import java.net.SocketException;
 
 /**
  * A Server connection.
@@ -23,12 +22,14 @@ abstract public class Server {
 			ServerSocket serverSocket = new ServerSocket(Network.GAMEPORT);
 			
 			drawing.Popup.popupMessage("Server started. Opponents may now join");
-			DrawWindow.DrawWindowmain(); // Removes white traces after popup
+			// TODO: refresh window
 			Socket server = serverSocket.accept();
 			drawing.Popup.popupMessage("Connection accepted");
 			Network.handleTraffic(server);
-		}
-		catch (IOException e) {
+		} catch (SocketException e) {
+			System.err.println(e);
+			drawing.Popup.popupMessage("Client disconnected");
+		} catch (IOException e) {
            System.err.println(e);
            drawing.Popup.popupMessage("Failed. See System.err");
            //TODO: popup should return the exception message

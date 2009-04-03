@@ -12,7 +12,7 @@ import java.net.Socket;
  */
 abstract public class Network {
 	static final int GAMEPORT = 9889;	// Does not seem to be used
-	static String serverIP;
+	static String serverIP = "192.168.1.143";
 	public static boolean online = true;
 	
 	private static char nullChar = 'a';		// For no key pressed this time
@@ -55,6 +55,7 @@ abstract public class Network {
 	    				parser.netParse(incomingChar);
 	    			} else {
 	    				// Don't care
+	    				drawing.Popup.popupMessage("Received: " + incomingChar);
 	    			}
 	    		}
 	    	}

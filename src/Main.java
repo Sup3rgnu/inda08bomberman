@@ -1,6 +1,5 @@
 import drawing.DrawWindow;
 
-
 public class Main {
 
 	/**

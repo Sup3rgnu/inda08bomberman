@@ -1,6 +1,8 @@
 package mapping;
 
 public class KeyboardParser {
+	private boolean debugging = true;
+
 	public KeyboardParser() {}
 	
 	private static final int VK_LEFT = 37;
@@ -13,36 +15,78 @@ public class KeyboardParser {
 	public void netParse(char c) {
 		if (c == (char) VK_LEFT) {
 			// goLeft
+			if (debugging ) {
+				drawing.Popup.popupMessage("Remote LEFT");
+			}
 		}else if (c == (char) VK_RIGHT){
 			//goRight
+			if (debugging ) {
+				drawing.Popup.popupMessage("Remote RIGHT");
+			}
 		}else if (c == (char) VK_UP){
 			//goUp
+			if (debugging ) {
+				drawing.Popup.popupMessage("Remote UP");
+			}
 		}else if (c == (char) VK_DOWN){
 			//goDown
+			if (debugging ) {
+				drawing.Popup.popupMessage("Remote DOWN");
+			}
 		}else if (c == (char) SPACE){
 			//dropBomb
+			if (debugging ) {
+				drawing.Popup.popupMessage("Remote SPACE");
+			}
 		}else if (c == (char) ESCAPE){
 			//esc
+			if (debugging ) {
+				drawing.Popup.popupMessage("Remote ESCAPE");
+			}
 		}else{
 			//doNothing
+			if (debugging ) {
+				drawing.Popup.popupMessage("Remote NO_KEY");
+			}
 		}
 	}
 	
 	public void localParse(char c) {
 		if (c == (char) VK_LEFT) {
 			// goLeft
+			if (debugging ) {
+				drawing.Popup.popupMessage("Local LEFT");
+			}
 		}else if (c == (char) VK_RIGHT){
 			//goRight
+			if (debugging ) {
+				drawing.Popup.popupMessage("Local RIGHT");
+			}
 		}else if (c == (char) VK_UP){
 			//goUp
+			if (debugging ) {
+				drawing.Popup.popupMessage("Local UP");
+			}
 		}else if (c == (char) VK_DOWN){
 			//goDown
+			if (debugging ) {
+				drawing.Popup.popupMessage("Local DOWN");
+			}
 		}else if (c == (char) SPACE){
 			//dropBomb
+			if (debugging ) {
+				drawing.Popup.popupMessage("Local SPACE");
+			}
 		}else if (c == (char) ESCAPE){
 			//esc
+			if (debugging ) {
+				drawing.Popup.popupMessage("Local ESCAPE");
+			}
 		}else{
 			//doNothing
+			if (debugging ) {
+				drawing.Popup.popupMessage("Local NO_KEY");
+			}
 		}
 	}
 	
