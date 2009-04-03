@@ -43,7 +43,7 @@ abstract public class Network {
 	    		networkOutput.print(nextKey);
 	    		networkOutput.flush();			// Send one-char packets for speed
 	    		drawing.Popup.popupMessage("Sent a package");
-	    		if (nextKey == 0) {		//TODO: should be q/Q
+	    		if (nextKey == (char) 81 || nextKey == (char) 113) {		
 	    			/* Disconnect */
 	    			drawing.Popup.popupMessage("Disconnected");
 	    			online = false;		
