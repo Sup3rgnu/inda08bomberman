@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
+import java.net.SocketException;
 
 /**
  * Properties and functions representing the network protocol.
@@ -45,8 +46,8 @@ abstract public class Network {
 	    		if (nextKey == 0) {		//TODO: should be q/Q
 	    			/* Disconnect */
 	    			drawing.Popup.popupMessage("Disconnected");
-	    			online = false;
-	    			break;
+	    			online = false;		
+	    			break;				// Not necessary with the online boolean
 	    		} else {
 	    			/* Receive messages  - what does our opponent do? */
 	    			mapping.KeyboardParser parser = new mapping.KeyboardParser();
@@ -65,6 +66,10 @@ abstract public class Network {
 	        networkInput.close();
 			networkOutput.close();
 	        socket.close();
+		} catch (SocketException e) {
+			System.err.println(e);
+			drawing.Popup.popupMessage("Server disconnected");
+			//TODO: Enter new IP and try again
 	    } catch (IOException e) {
 			System.err.println(e);
 			drawing.Popup.popupMessage("IO Exception");
