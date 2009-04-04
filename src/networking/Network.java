@@ -10,6 +10,9 @@ import java.net.SocketException;
  * Properties and functions representing the network protocol.
  * Filter for capturing traffic using Wireshark:
  * (tcp.dstport == 9889) || (tcp.srcport == 9889)
+ * 
+ * Same filter without nullchars:
+ * (tcp.dstport == 9889) || (tcp.srcport == 9889) && !(data.data == 61)			//For nullchar = 'a'
  * @author caj.hofberg
  *
  */
@@ -49,7 +52,7 @@ abstract public class Network {
     				parser.netParse(incomingChar);
     			} else {
     				// Don't care
-    				System.out.println("Received nullchar: " + incomingChar);
+    				//System.out.println("Received nullchar: " + incomingChar);
     			}
     			
     			// We got the token!
