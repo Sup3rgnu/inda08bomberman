@@ -32,7 +32,7 @@ abstract public class Server {
 			networkOutput.print(Network.nullChar);
     		networkOutput.flush();			// Send one-char packets for speed
     		networkOutput = null;			// Remove
-    		drawing.Popup.popupMessage("Sent a token");
+    		System.out.println("Sent a token");
 			
 			Network.handleTraffic(server);
 		} catch (SocketException e) {

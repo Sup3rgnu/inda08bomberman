@@ -31,7 +31,7 @@ abstract public class Network {
 	 */
 	static void handleTraffic(Socket socket) {
 		try {
-			drawing.Popup.popupMessage("Handling traffic");
+			System.out.println("Handling traffic");
 			
 			// Network in/out
 			DataInputStream networkInput = new DataInputStream(socket.getInputStream());
@@ -76,7 +76,7 @@ abstract public class Network {
 	        socket.close();
 		} catch (SocketException e) {
 			System.err.println(e);
-			drawing.Popup.popupMessage("Server disconnected");
+			drawing.Popup.popupMessage("Disconnected");
 			//TODO: Enter new IP and try again
 	    } catch (IOException e) {
 			System.err.println(e);
