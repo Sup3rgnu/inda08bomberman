@@ -8,6 +8,8 @@ import java.net.SocketException;
 
 /**
  * Properties and functions representing the network protocol.
+ * Filter for capturing traffic using Wireshark:
+ * (tcp.dstport == 9889) || (tcp.srcport == 9889)
  * @author caj.hofberg
  *
  */
@@ -16,7 +18,7 @@ abstract public class Network {
 	static String serverIP = "192.168.1.143";
 	public static boolean online = true;
 	
-	private static char nullChar = 'a';		// For no key pressed this time
+	public static char nullChar = 'a';		// For no key pressed this time
 	public static char nextKey = nullChar;	// No key pressed yet
 	
 	Network() {}
@@ -36,10 +38,24 @@ abstract public class Network {
 	    	PrintStream networkOutput = new PrintStream(socket.getOutputStream());
 	    	
 	    	// Keyboard stream
-    		//InputStreamReader userInput = new InputStreamReader(System.in);
+    		// InputStreamReader userInput = new InputStreamReader(System.in);
     		
     		/* Send & receive messages */
 	    	while (online) {
+	    		/* Receive messages  - what does our opponent do? */
+    			mapping.KeyboardParser parser = new mapping.KeyboardParser();
+    			char incomingChar = networkInput.readChar();
+    			if (incomingChar != nullChar) {
+    				parser.netParse(incomingChar);
+    			} else {
+    				// Don't care
+    				drawing.Popup.popupMessage("Received: " + incomingChar);
+    			}
+    			
+    			// We got the token!
+    			// TCP makes sure that the token is not lost
+    			
+    			/* Now it is time to send */
 	    		networkOutput.print(nextKey);
 	    		networkOutput.flush();			// Send one-char packets for speed
 	    		drawing.Popup.popupMessage("Sent a package");
@@ -49,15 +65,7 @@ abstract public class Network {
 	    			online = false;		
 	    			break;				// Not necessary with the online boolean
 	    		} else {
-	    			/* Receive messages  - what does our opponent do? */
-	    			mapping.KeyboardParser parser = new mapping.KeyboardParser();
-	    			char incomingChar = networkInput.readChar();
-	    			if (incomingChar != nullChar) {
-	    				parser.netParse(incomingChar);
-	    			} else {
-	    				// Don't care
-	    				drawing.Popup.popupMessage("Received: " + incomingChar);
-	    			}
+	    			// Continue
 	    		}
 	    	}
 	        

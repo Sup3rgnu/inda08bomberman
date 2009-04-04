@@ -1,6 +1,7 @@
 package networking;
 
 import java.io.IOException;
+import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
@@ -25,6 +26,14 @@ abstract public class Server {
 			// TODO: refresh window
 			Socket server = serverSocket.accept();
 			System.out.println("Connection accepted");
+			
+			/* Create a token */
+			PrintStream networkOutput = new PrintStream(server.getOutputStream());
+			networkOutput.print(Network.nullChar);
+    		networkOutput.flush();			// Send one-char packets for speed
+    		networkOutput = null;			// Remove
+    		drawing.Popup.popupMessage("Sent a token");
+			
 			Network.handleTraffic(server);
 		} catch (SocketException e) {
 			System.err.println(e);
