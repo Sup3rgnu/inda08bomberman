@@ -8,7 +8,7 @@ public class Main {
 	 * @author C,M,J
 	 */
 	public static void main(String[] args) {
-		boolean isServer = true;
+		boolean isServer = false;
 		// TODO:s, format: TODO: <thing to do> (<package>, <assigned-to>
 		
 		

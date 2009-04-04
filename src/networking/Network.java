@@ -2,6 +2,7 @@ package networking;
 
 import java.io.DataInputStream;
 import java.io.IOException;
+//import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
 import java.net.SocketException;
@@ -41,12 +42,15 @@ abstract public class Network {
 	    	PrintStream networkOutput = new PrintStream(socket.getOutputStream());
 	    	
 	    	// Keyboard stream
-    		// InputStreamReader userInput = new InputStreamReader(System.in);
+    		//InputStreamReader userInput = new InputStreamReader(System.in);
+    		
+    		// Parser for chars
+    		mapping.KeyboardParser parser = new mapping.KeyboardParser();
     		
     		/* Send & receive messages */
 	    	while (online) {
 	    		/* Receive messages  - what does our opponent do? */
-    			mapping.KeyboardParser parser = new mapping.KeyboardParser();
+    			
     			char incomingChar = (char) networkInput.read();		// readChar() did wrong
     			if (incomingChar != nullChar) {
     				parser.netParse(incomingChar);
@@ -59,8 +63,13 @@ abstract public class Network {
     			// TCP makes sure that the token is not lost
     			
     			/* Now it is time to send */
+    			//nextKey = (char) userInput.read();
+    			if (nextKey != nullChar) {
+    				System.out.println("User pressed int: " + nextKey + "char: " + (char) nextKey);
+    			}
 	    		networkOutput.print(nextKey);
 	    		networkOutput.flush();			// Send one-char packets for speed
+	    		nextKey = nullChar;
 	    		//System.out.println("Sent a package");
 	    		if (nextKey == (char) 81 || nextKey == (char) 113) {		
 	    			/* Disconnect */

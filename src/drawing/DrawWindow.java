@@ -8,6 +8,8 @@ import java.util.Vector;
 
 import javax.swing.JFrame;
 
+import userInputHandling.KeyHandler;
+
 public class DrawWindow extends JFrame {
 
 	private static final long serialVersionUID = 7669473739626066784L;
@@ -20,7 +22,11 @@ public class DrawWindow extends JFrame {
 	Random rand = new Random(); // Used for random circle locations
 
 	public DrawWindow() {
-  
+		
+		/* Start a key listener */
+		KeyHandler gameKeys = new userInputHandling.KeyHandler();
+		addKeyListener(gameKeys);
+		
     setIgnoreRepaint( true );
     setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
     canvas = new Canvas();
