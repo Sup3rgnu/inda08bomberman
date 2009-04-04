@@ -44,7 +44,7 @@ abstract public class Network {
 	    	while (online) {
 	    		/* Receive messages  - what does our opponent do? */
     			mapping.KeyboardParser parser = new mapping.KeyboardParser();
-    			char incomingChar = networkInput.readChar();
+    			char incomingChar = (char) networkInput.read();		// The readChar() did wrong
     			if (incomingChar != nullChar) {
     				parser.netParse(incomingChar);
     			} else {
