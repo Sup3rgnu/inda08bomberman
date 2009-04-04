@@ -44,12 +44,12 @@ abstract public class Network {
 	    	while (online) {
 	    		/* Receive messages  - what does our opponent do? */
     			mapping.KeyboardParser parser = new mapping.KeyboardParser();
-    			char incomingChar = (char) networkInput.read();		// The readChar() did wrong
+    			char incomingChar = (char) networkInput.read();		// readChar() did wrong
     			if (incomingChar != nullChar) {
     				parser.netParse(incomingChar);
     			} else {
     				// Don't care
-    				drawing.Popup.popupMessage("Received: " + incomingChar);
+    				System.out.println("Received nullchar: " + incomingChar);
     			}
     			
     			// We got the token!
@@ -58,7 +58,7 @@ abstract public class Network {
     			/* Now it is time to send */
 	    		networkOutput.print(nextKey);
 	    		networkOutput.flush();			// Send one-char packets for speed
-	    		drawing.Popup.popupMessage("Sent a package");
+	    		//System.out.println("Sent a package");
 	    		if (nextKey == (char) 81 || nextKey == (char) 113) {		
 	    			/* Disconnect */
 	    			drawing.Popup.popupMessage("Disconnected");
