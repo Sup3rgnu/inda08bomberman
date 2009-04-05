@@ -1,0 +1,13 @@
+#labels Featured,Phase-Design,Phase-QA,Networking
+How I made multiplayer bombing possible
+
+= Introduction =
+
+The Bomberman game starts with a server-client solution when connecting and then initiates a peer-to-peer protocol working as a token-ring. The protocol was designed to enforce equal bandwith latency for all players. It aims for as low latency as possible.
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
