@@ -9,30 +9,41 @@ abstract public class Popup {
 
 	private static List<dataCollecting.Player> players;
 
+	/**
+	 * Used for showing message dialog.
+	 * @param s = the greeting in the popup.
+	 */
 	static public void popupMessage(String s){
 		JOptionPane.showMessageDialog(null, s);
 	}
-
-	static private void popupInput(String n){
-
-		String inputName = JOptionPane.showInputDialog(n); 
-		addPlayer(inputName);
+	
+	/**
+	 * Used for user input, such as Name and IP number.  
+	 * @param n = for ex: "Enter your name".
+	 * @return = returns the string with name/ip to do something with it.
+	 */
+	public static String popupInput(String n){
+		String input = JOptionPane.showInputDialog(n); 
+		return input;
 	}
 
+	
 	/**
 	 *  These two methods doesn't belong here, just for testing, didn't know where to put em.. 
-	 *  Should probably be called from network, and the for-loop that adds players in createPlayers
-	 *  is just for testing, popupInput should be called for each player somehow.
-	 * @param numberOfPlayers
+	 *  createPlayers should probably be called from network, when player1 starts a new game, then 
+	 *  player2 only have to call the addPlayer method.
+	 *   
+	 *  The for-loop that adds players in createPlayers is just for testing, popupInput should 
+	 *  be called for each player somehow.
+	 * @param numberOfPlayers = set to two now for testing purposes. 
 	 */
-
 	static public void createPlayers(int numberOfPlayers){
-		players = new ArrayList<dataCollecting.Player>(numberOfPlayers);
+		players = new ArrayList<dataCollecting.Player>(numberOfPlayers); //array with the players
 
-		for (int i = 0; i < numberOfPlayers; i++)
-			drawing.Popup.popupInput("Please enter your name: "); 
+		for (int i = 0; i < numberOfPlayers; i++) //just for testing
+			addPlayer(popupInput("Please enter your name: ")); 
 
-		for(dataCollecting.Player player : players) {
+		for(dataCollecting.Player player : players) { //test, printing just to see that it works
 			player.getName();
 		}
 
@@ -45,10 +56,19 @@ abstract public class Popup {
 		players.add(player);
 	}
 
+	
+	static public void requestIp(){
+		
+		String opponentsIp = (popupInput("Enter your friend's ip (Ex: 213.89.147.17)"));
+		
+		//Where does the ip go? Should probably be called from network or something
+		//after the server is up and running
+	}
 
 	//TODO: String popup for insertion of PlayerName
 
-	//TODO: IP popup for insertion of IP addresses (unless String popup handles IPs)
+	//TODO: IP popup for insertion of IP addresses (unless String popup handles IPs) 
+		//It can if it's ok for the network to handle the ip as a string? Otherwise cast it somehow to int?
 
 	//TODO: Choose Server/Client popup
 }
