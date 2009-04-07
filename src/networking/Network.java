@@ -19,11 +19,11 @@ import java.net.SocketException;
  */
 abstract public class Network {
 	static final int GAMEPORT = 9889;	// Does not seem to be used
-	static String serverIP = "192.168.1.143";
+	public static String serverIP = "192.168.1.143";
 	public static boolean online = true;
 	
-	public static char nullChar = 'a';		// For no key pressed this time
-	public static char nextKey = nullChar;	// No key pressed yet
+	public static byte nullChar = 'a';		// For no key pressed this time
+	public static byte nextKey = nullChar;	// No key pressed yet
 	
 	Network() {}
 	
@@ -51,7 +51,7 @@ abstract public class Network {
 	    	while (online) {
 	    		/* Receive messages  - what does our opponent do? */
     			
-    			char incomingChar = (char) networkInput.read();		// readChar() did wrong
+    			byte incomingChar = (byte) networkInput.read();		// readChar() did wrong
     			if (incomingChar != nullChar) {
     				parser.netParse(incomingChar);
     			} else {
