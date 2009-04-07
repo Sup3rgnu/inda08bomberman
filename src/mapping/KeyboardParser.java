@@ -11,7 +11,7 @@ public class KeyboardParser {
 	public KeyboardParser() {}
 	
 	private static final byte VK_LEFT = 37;
-	private static final byte VK_RIGHT = (byte) 227;		// NOTE: -128 <= byte <= 127
+	private static final byte VK_RIGHT = 39;
 	private static final byte VK_UP = 38;
 	private static final byte VK_DOWN = 40;
 	private static final byte SPACE = 32;
@@ -21,41 +21,41 @@ public class KeyboardParser {
 		if (debugging ) {
 			System.out.println("mapping.netParse received char :" + Integer.toBinaryString(c));		// char c to binary string
 		}
-		if (c == VK_LEFT) {				//TODO
+		if (c == VK_LEFT) {										//OK
 			// goLeft
 			if (debugging ) {
 				drawing.Popup.popupMessage("Remote LEFT");
 			}
-		}else if (c == VK_RIGHT){		//TODO
+		}else if (c == VK_RIGHT){								//TODO
 			//goRight
 			if (debugging ) {
 				drawing.Popup.popupMessage("Remote RIGHT");
 			}
-		}else if (c == VK_UP){			//TODO
+		}else if (c == VK_UP){									//OK
 			//goUp
 			if (debugging ) {
 				drawing.Popup.popupMessage("Remote UP");
 			}
-		}else if (c == VK_DOWN){			//TODO
+		}else if (c == VK_DOWN){								//OK
 			//goDown
 			if (debugging ) {
 				drawing.Popup.popupMessage("Remote DOWN");
-			}
-		}else if (c == SPACE){			// WORKS
+			} 
+		}else if (c == SPACE){									//OK
 			//dropBomb
 			if (debugging ) {
 				//drawing.Popup.popupMessage("Remote SPACE");
 				System.out.println("Remote SPACE");
 			}
-		}else if (c == ESCAPE){			//TODO
+		}else if (c == ESCAPE){									//OK
 			//esc
 			if (debugging ) {
 				drawing.Popup.popupMessage("Remote ESCAPE");
 			}
-		}else{									//WORKS
+		}else{													//OK
 			//doNothing
 			if (debugging ) {
-				System.out.println("Remote NO_KEY");		// May spam
+				System.out.println("Remote NO_KEY");			// May spam
 			}
 		}
 	}
@@ -64,10 +64,10 @@ public class KeyboardParser {
 		if (c == VK_LEFT) {
 			// goLeft
 			if (debugging ) {
-				drawing.Popup.popupMessage("Local LEFT");
+				drawing.Popup.popupMessage("Local LEFT");		//OK
 				networking.Network.nextKey = VK_LEFT;
 			}
-		}else if (c == VK_RIGHT){
+		}else if (c == VK_RIGHT){								//TODO
 			//goRight
 			if (debugging ) {
 				drawing.Popup.popupMessage("Local RIGHT");
@@ -76,25 +76,25 @@ public class KeyboardParser {
 		}else if (c == VK_UP){
 			//goUp
 			if (debugging ) {
-				drawing.Popup.popupMessage("Local UP");
+				drawing.Popup.popupMessage("Local UP");			//OK
 				networking.Network.nextKey = VK_UP;
 			}
 		}else if (c == VK_DOWN){
 			//goDown
 			if (debugging ) {
-				drawing.Popup.popupMessage("Local DOWN");
+				drawing.Popup.popupMessage("Local DOWN");		//OK
 				networking.Network.nextKey = VK_DOWN;
 			}
 		}else if (c == SPACE){
 			//dropBomb
 			if (debugging ) {
-				drawing.Popup.popupMessage("Local SPACE");
+				drawing.Popup.popupMessage("Local SPACE");		//OK
 				networking.Network.nextKey = SPACE;
 			}
 		}else if (c == ESCAPE){
 			//esc
 			if (debugging ) {
-				drawing.Popup.popupMessage("Local ESCAPE");
+				drawing.Popup.popupMessage("Local ESCAPE");		//OK
 				networking.Network.nextKey = ESCAPE;
 			}
 		}else{
