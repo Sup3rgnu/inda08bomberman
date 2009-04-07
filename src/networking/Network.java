@@ -22,8 +22,8 @@ abstract public class Network {
 	public static String serverIP = "192.168.1.143";
 	public static boolean online = true;
 	
-	public static byte nullChar = 'a';		// For no key pressed this time
-	public static byte nextKey = nullChar;	// No key pressed yet
+	public static int nullChar = 'a';		// For no key pressed this time
+	public static int nextKey = nullChar;	// No key pressed yet
 	
 	Network() {}
 	
@@ -51,7 +51,7 @@ abstract public class Network {
 	    	while (online) {
 	    		/* Receive messages  - what does our opponent do? */
     			
-    			byte incomingChar = (byte) networkInput.read();		// readChar() did wrong
+    			int incomingChar = (int) networkInput.read();		// readChar() did wrong
     			if (incomingChar != nullChar) {
     				parser.netParse(incomingChar);
     			} else {
@@ -71,7 +71,7 @@ abstract public class Network {
 	    		networkOutput.flush();			// Send one-char packets for speed
 	    		nextKey = nullChar;
 	    		//System.out.println("Sent a package");
-	    		if (nextKey == (char) 81 || nextKey == (char) 113) {		
+	    		if (nextKey == (int) 81 || nextKey == (int) 113) {
 	    			/* Disconnect */
 	    			drawing.Popup.popupMessage("Disconnected");
 	    			online = false;		
