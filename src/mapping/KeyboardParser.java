@@ -1,20 +1,25 @@
 package mapping;
 
+/**
+ * byte appeared to be better than char due to unicode troubles
+ * @author 
+ *
+ */
 public class KeyboardParser {
 	private boolean debugging = true;
 
 	public KeyboardParser() {}
 	
-	private static final int VK_LEFT = 37;
-	private static final int VK_RIGHT = (int) 227;		// NOTE: -128 <= byte <= 127
-	private static final int VK_UP = 38;
-	private static final int VK_DOWN = 40;
-	private static final int SPACE = 32;
-	private static final int ESCAPE = 27;
+	private static final byte VK_LEFT = 37;
+	private static final byte VK_RIGHT = (byte) 227;		// NOTE: -128 <= byte <= 127
+	private static final byte VK_UP = 38;
+	private static final byte VK_DOWN = 40;
+	private static final byte SPACE = 32;
+	private static final byte ESCAPE = 27;
 	
-	public void netParse(int c) {
+	public void netParse(byte c) {
 		if (debugging ) {
-			//System.out.println("mapping.netParse received char :" + Integer.toBinaryString(c));		// char c to binary string
+			System.out.println("mapping.netParse received char :" + Integer.toBinaryString(c));		// char c to binary string
 		}
 		if (c == VK_LEFT) {				//TODO
 			// goLeft
@@ -49,13 +54,13 @@ public class KeyboardParser {
 			}
 		}else{									//WORKS
 			//doNothing
-			if (debugging) {
-				//System.out.println("Remote NO_KEY");		// May spam
+			if (debugging ) {
+				System.out.println("Remote NO_KEY");		// May spam
 			}
 		}
 	}
 	
-	public void localParse(int c) {
+	public void localParse(byte c) {
 		if (c == VK_LEFT) {
 			// goLeft
 			if (debugging ) {
