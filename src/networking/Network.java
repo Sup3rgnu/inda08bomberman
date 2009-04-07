@@ -70,7 +70,7 @@ abstract public class Network {
     			if (nextKey != nullChar) {
     				System.out.println("Local user pressed byte: " + (byte) nextKey + " char: " + (char) nextKey);
     			}
-	    		networkOutput.print(nextKey);
+	    		networkOutput.write(nextKey);
 	    		networkOutput.flush();			// Send one-char packets for speed
 	    		nextKey = nullChar;
 	    		//System.out.println("Sent a package");
