@@ -24,7 +24,11 @@ abstract public class Popup {
 	 */
 	public static String popupInput(String n){
 		String input = JOptionPane.showInputDialog(n); 
-		return input;
+		if(!input.isEmpty()) {
+			return input;
+		} else {
+			return networking.Network.serverIP;			// Preserve the default
+		}
 	}
 
 	
@@ -59,10 +63,9 @@ abstract public class Popup {
 	
 	static public void requestIp(){
 		
-		networking.Network.serverIP = (popupInput("Enter your friend's ip (Ex: 213.89.147.17)"));
+		networking.Network.serverIP = popupInput("Enter your friend's IP (Ex: 192.168.0.2)");
 		
-		//Where does the ip go? Should probably be called from network or something
-		//after the server is up and running
+		//Should be called from network after the server is up and running
 	}
 
 	//TODO: String popup for insertion of PlayerName
