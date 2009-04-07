@@ -54,9 +54,9 @@ public class KeyHandler implements KeyListener {
 	  }*/
 		
 	  public synchronized void keyPressed( KeyEvent e ) {
-		  System.out.println("Local key pressed: " + e.getKeyChar());
+		  System.out.println("Local key pressed: " + e.getKeyLocation());
 		  mapping.KeyboardParser parser = new mapping.KeyboardParser();		// Parser
-		  parser.localParse((byte) e.getKeyChar());
+		  parser.localParse((byte) e.getKeyLocation());
 		  
 		  	/*int keyCode = e.getKeyCode();
 	    	if( keyCode >= 0 && keyCode < KEY_COUNT ) {
