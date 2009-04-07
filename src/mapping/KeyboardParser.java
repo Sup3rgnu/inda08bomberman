@@ -100,7 +100,7 @@ public class KeyboardParser {
 		}else{
 			//doNothing
 			if (debugging ) {
-				System.out.println("Local NO_KEY");			// May spam
+				System.out.println("Local NO_KEY: byte: " + (byte) c + " char: " + (char) c);
 			}
 		}
 	}
