@@ -65,31 +65,37 @@ public class KeyboardParser {
 			// goLeft
 			if (debugging ) {
 				drawing.Popup.popupMessage("Local LEFT");
+				networking.Network.nextKey = VK_LEFT;
 			}
 		}else if (c == VK_RIGHT){
 			//goRight
 			if (debugging ) {
 				drawing.Popup.popupMessage("Local RIGHT");
+				networking.Network.nextKey = VK_RIGHT;
 			}
 		}else if (c == VK_UP){
 			//goUp
 			if (debugging ) {
 				drawing.Popup.popupMessage("Local UP");
+				networking.Network.nextKey = VK_UP;
 			}
 		}else if (c == VK_DOWN){
 			//goDown
 			if (debugging ) {
 				drawing.Popup.popupMessage("Local DOWN");
+				networking.Network.nextKey = VK_DOWN;
 			}
 		}else if (c == SPACE){
 			//dropBomb
 			if (debugging ) {
 				drawing.Popup.popupMessage("Local SPACE");
+				networking.Network.nextKey = SPACE;
 			}
 		}else if (c == ESCAPE){
 			//esc
 			if (debugging ) {
 				drawing.Popup.popupMessage("Local ESCAPE");
+				networking.Network.nextKey = ESCAPE;
 			}
 		}else{
 			//doNothing

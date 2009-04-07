@@ -68,13 +68,13 @@ abstract public class Network {
     			/* Now it is time to send */
     			//nextKey = (char) userInput.read();
     			if (nextKey != nullChar) {
-    				System.out.println("User pressed int: " + nextKey + "char: " + (char) nextKey);
+    				System.out.println("Local user pressed byte: " + (byte) nextKey + " char: " + (char) nextKey);
     			}
 	    		networkOutput.print(nextKey);
 	    		networkOutput.flush();			// Send one-char packets for speed
 	    		nextKey = nullChar;
 	    		//System.out.println("Sent a package");
-	    		if (nextKey == (char) 81 || nextKey == (char) 113) {		
+	    		if (nextKey == (byte) 81 || nextKey == (byte) 113) {		
 	    			/* Disconnect */
 	    			drawing.Popup.popupMessage("Disconnected");
 	    			online = false;		
