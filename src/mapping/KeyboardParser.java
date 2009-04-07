@@ -24,38 +24,37 @@ public class KeyboardParser {
 		if (c == VK_LEFT) {										//OK
 			// goLeft
 			if (debugging ) {
-				drawing.Popup.popupMessage("Remote LEFT");
+				System.out.println("Remote LEFT");
 			}
-		}else if (c == VK_RIGHT){								//TODO
+		}else if (c == VK_RIGHT){								//OK
 			//goRight
 			if (debugging ) {
-				drawing.Popup.popupMessage("Remote RIGHT");
+				System.out.println("Remote RIGHT");
 			}
 		}else if (c == VK_UP){									//OK
 			//goUp
 			if (debugging ) {
-				drawing.Popup.popupMessage("Remote UP");
+				System.out.println("Remote UP");
 			}
 		}else if (c == VK_DOWN){								//OK
 			//goDown
 			if (debugging ) {
-				drawing.Popup.popupMessage("Remote DOWN");
+				System.out.println("Remote DOWN");
 			} 
 		}else if (c == SPACE){									//OK
 			//dropBomb
 			if (debugging ) {
-				//drawing.Popup.popupMessage("Remote SPACE");
 				System.out.println("Remote SPACE");
 			}
 		}else if (c == ESCAPE){									//OK
 			//esc
 			if (debugging ) {
-				drawing.Popup.popupMessage("Remote ESCAPE");
+				System.out.println("Remote ESCAPE");
 			}
 		}else{													//OK
 			//doNothing
 			if (debugging ) {
-				System.out.println("Remote NO_KEY");			// May spam
+				System.out.println("Remote NO_KEY");			// May spam			//OK
 			}
 		}
 	}
@@ -64,43 +63,43 @@ public class KeyboardParser {
 		if (c == VK_LEFT) {
 			// goLeft
 			if (debugging ) {
-				drawing.Popup.popupMessage("Local LEFT");		//OK
+				System.out.println("Local LEFT");		//OK
 				networking.Network.nextKey = VK_LEFT;
 			}
-		}else if (c == VK_RIGHT){								//TODO
+		}else if (c == VK_RIGHT){
 			//goRight
 			if (debugging ) {
-				drawing.Popup.popupMessage("Local RIGHT");
+				System.out.println("Local RIGHT");		//OK
 				networking.Network.nextKey = VK_RIGHT;
 			}
 		}else if (c == VK_UP){
 			//goUp
 			if (debugging ) {
-				drawing.Popup.popupMessage("Local UP");			//OK
+				System.out.println("Local UP");			//OK
 				networking.Network.nextKey = VK_UP;
 			}
 		}else if (c == VK_DOWN){
 			//goDown
 			if (debugging ) {
-				drawing.Popup.popupMessage("Local DOWN");		//OK
+				System.out.println("Local DOWN");		//OK
 				networking.Network.nextKey = VK_DOWN;
 			}
 		}else if (c == SPACE){
 			//dropBomb
 			if (debugging ) {
-				drawing.Popup.popupMessage("Local SPACE");		//OK
+				System.out.println("Local SPACE");		//OK
 				networking.Network.nextKey = SPACE;
 			}
 		}else if (c == ESCAPE){
 			//esc
 			if (debugging ) {
-				drawing.Popup.popupMessage("Local ESCAPE");		//OK
+				System.out.println("Local ESCAPE");		//OK
 				networking.Network.nextKey = ESCAPE;
 			}
 		}else{
 			//doNothing
 			if (debugging ) {
-				System.out.println("Local NO_KEY: byte: " + (byte) c + " char: " + (char) c);
+				System.out.println("Local NO_KEY: byte: " + (byte) c + " char: " + (char) c);		//OK
 			}
 		}
 	}
