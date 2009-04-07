@@ -59,7 +59,7 @@ abstract public class Popup {
 	
 	static public void requestIp(){
 		
-		String opponentsIp = (popupInput("Enter your friend's ip (Ex: 213.89.147.17)"));
+		networking.Network.serverIP = (popupInput("Enter your friend's ip (Ex: 213.89.147.17)"));
 		
 		//Where does the ip go? Should probably be called from network or something
 		//after the server is up and running
