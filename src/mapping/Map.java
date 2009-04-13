@@ -11,13 +11,16 @@ abstract public class Map {
 	final static int BOMB1 = -1; // Square with player1 has placed a bomb
 	final static int BOMB2 = -2; // Square with player2 has placed a bomb
 
+	final static int HEIGHT = 6; // Height of the board
+	final static int WIDTH = 6; // Width of the board
+	
 	static int PLAYERPOSY = 1;
 	static int PLAYERPOSX = 1;
 
-	final static int HEIGHT = 24; // Height of the board
-	final static int WIDTH = 24; // Width of the board
+	static int PLAYER2POSY = HEIGHT-2;
+	static int PLAYER2POSX = WIDTH-2;
 
-	final static int[][] board = new int[HEIGHT][WIDTH]; 
+	static int[][] board = new int[HEIGHT][WIDTH]; 
 
 	public static void startMap(){
 
