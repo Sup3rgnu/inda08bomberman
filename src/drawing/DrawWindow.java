@@ -76,7 +76,10 @@ public class DrawWindow extends JFrame {
         g2d.drawString( "Bomberman.exe", 250, 220 );
         g2d.drawString( "Press Q to disconnect", 250, 230 );
         g2d.drawString( "--------------------------", 250, 240 );
-               
+
+        // Cajs tester
+        Image test = Toolkit.getDefaultToolkit().getImage("animbombe.gif");
+        g2d.drawImage(test, 32, 32, 32, 32, this);
 
         // Draw random circles
         g2d.setColor( Color.BLACK );
