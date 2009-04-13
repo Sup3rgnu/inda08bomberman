@@ -11,8 +11,9 @@ import javax.swing.JFrame;
 import userInputHandling.KeyHandler;
 
 public class DrawWindow extends JFrame {
-
+	
 	private static final long serialVersionUID = 7669473739626066784L;
+	
 	static final int WIDTH = 640;
 	static final int HEIGHT = 480;
 	class Bob { int x, y, w, h, dx, dy; }
@@ -20,6 +21,8 @@ public class DrawWindow extends JFrame {
 	Vector< Point > circles = new Vector< Point >(); // Circles
 	Bob bob = new Bob(); // Our rectangle
 	Random rand = new Random(); // Used for random circle locations
+
+	
 
 	public DrawWindow() {
 		
@@ -36,10 +39,10 @@ public class DrawWindow extends JFrame {
     pack();
     
     
-    bob.x = bob.y = 0;
-    bob.dx = bob.dy = 5;
+    bob.x = bob.y = 250;
+    bob.dx = bob.dy = 25;
     bob.w = bob.h = 25;
-
+    
     }
 	
 	public void run() {
@@ -53,7 +56,7 @@ public class DrawWindow extends JFrame {
     
     Graphics graphics = null;
     Graphics2D g2d = null;
-    Color background = Color.BLACK;
+    Color background = Color.PINK;
     
     
       try {
@@ -66,19 +69,22 @@ public class DrawWindow extends JFrame {
         g2d.fillRect( 0, 0, WIDTH, HEIGHT );
         
         // Draw help
-        g2d.setColor(  Color.GREEN );
+        g2d.setColor(  Color.BLACK );
         
-        g2d.drawString( "--------------------------", 20, 20 );
-        g2d.drawString( "New Game", 20, 32 );
-        g2d.drawString( "Bomberman.exe", 20, 44 );
-        g2d.drawString( "Press Q to disconnect", 20, 56 );
-        g2d.drawString( "--------------------------", 20, 20 );
+        g2d.drawString( "--------------------------", 250, 200 );
+        g2d.drawString( "New Game", 250, 210 );
+        g2d.drawString( "Bomberman.exe", 250, 220 );
+        g2d.drawString( "Press Q to disconnect", 250, 230 );
+        g2d.drawString( "--------------------------", 250, 240 );
                
 
         // Draw random circles
-        g2d.setColor( Color.MAGENTA );
+        g2d.setColor( Color.BLACK );
         for( Point p : circles ) {
           g2d.drawOval( p.x, p.y, 25, 25 );
+          g2d.drawOval( p.x, p.y, 50, 50 );
+          g2d.drawOval( p.x, p.y, 100, 100 );
+          g2d.drawOval( p.x, p.y, 150, 150 );
         }
         
         // Draw bob
