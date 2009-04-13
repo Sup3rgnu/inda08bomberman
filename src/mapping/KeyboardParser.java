@@ -54,7 +54,7 @@ public class KeyboardParser {
 			if (debugging ) {
 				System.out.println("Remote ESCAPE");
 			}
-		}else if (c == VK_Q){
+		}else if (c == VK_Q){									//TODO test
 			//disconnect
 			if (debugging) {
 				System.out.println("Remote DISCONNECT");
@@ -107,15 +107,14 @@ public class KeyboardParser {
 		}else if (c == VK_Q){
 			//disconnect
 			if (debugging ) {
-				System.out.println("Local DISCONNECT");
+				System.out.println("Local DISCONNECT");	//OK
 				networking.Network.nextKey = VK_Q;
 			}
 		}else{
 			//doNothing
 			if (debugging ) {
-				System.out.println("Local NO_KEY: byte: " + (byte) c + " char: " + (char) c);		//OK
+				System.out.println("No such key: byte: " + (byte) c + " char: " + (char) c);		//OK
 			}
 		}
 	}
-	
 }

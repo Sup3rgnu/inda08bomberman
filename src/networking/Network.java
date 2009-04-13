@@ -75,14 +75,14 @@ abstract public class Network {
 	    		nextKey = nullChar;
 	    		//System.out.println("Sent a package");
 	    		if (nextKey == (byte) 81 || nextKey == (byte) 113 || 
-	    				incomingChar == (byte) 81 || incomingChar == (byte) 113) {	
-	    			
+	    		incomingChar == (byte) 81 || incomingChar == (byte) 113) {	
+	    			System.out.println("Found key Q pressed");
 	    			/* Disconnect */
 	    			drawing.Popup.popupMessage("Disconnected");
 	    			online = false;		
 	    			break;				// Not necessary with the online boolean
 	    		} else {
-	    			// Continue
+	    			// Continue loop
 	    		}
 	    	}
 	        
