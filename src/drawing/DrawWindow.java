@@ -82,8 +82,23 @@ public class DrawWindow extends JFrame {
 
         // Cajs tester
         //Image test = Toolkit.getDefaultToolkit().getImage("bombe/bombe0.gif");
-        Image test = ImageIO.read(new File("bombe/bombe0.gif"));
-        g2d.drawImage(test, 32, 32, 32, 32, this);
+         
+        Image crate = ImageIO.read(new File("graphics/crate.gif"));
+        Image stone = ImageIO.read(new File("graphics/stone.gif"));
+        		
+        
+	        	
+		for(int i=0; i <mapping.Map.HEIGHT; i++){
+			for(int j=0; j < mapping.Map.WIDTH; j++){
+				if(mapping.Map.board[i][j] == mapping.Map.UNBREAKABLE){
+					g2d.drawImage(crate, i*32, j*32, 32, 32,this);
+				}
+				
+			}
+			System.out.println();
+		}
+		//g2d.drawImage(crate, 0, 0, 32, 32,this);
+        
 
         // Draw random circles
         g2d.setColor( Color.BLACK );
