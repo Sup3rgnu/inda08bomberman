@@ -3,9 +3,12 @@ package drawing;
 import java.awt.*;		// Includes many various classes
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 import java.util.Vector;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 import userInputHandling.KeyHandler;
@@ -45,7 +48,7 @@ public class DrawWindow extends JFrame {
     
     }
 	
-	public void run() {
+	public void run() throws IOException {
   
     canvas.createBufferStrategy( 2 );
     BufferStrategy buffer = canvas.getBufferStrategy();
@@ -78,7 +81,8 @@ public class DrawWindow extends JFrame {
         g2d.drawString( "--------------------------", 250, 240 );
 
         // Cajs tester
-        Image test = Toolkit.getDefaultToolkit().getImage("animbombe.gif");
+        //Image test = Toolkit.getDefaultToolkit().getImage("bombe/bombe0.gif");
+        Image test = ImageIO.read(new File("bombe/bombe0.gif"));
         g2d.drawImage(test, 32, 32, 32, 32, this);
 
         // Draw random circles
@@ -115,7 +119,7 @@ public class DrawWindow extends JFrame {
       	}
     }
 		
-	public static void DrawWindowmain() {
+	public static void DrawWindowmain() throws IOException {
 	DrawWindow dw = new DrawWindow();
 	dw.setTitle( "Bomberman" );
 	dw.setVisible( true );
