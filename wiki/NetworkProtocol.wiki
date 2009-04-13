@@ -19,9 +19,9 @@ This is followed by ACK packages without a PSH as of standard TCP
 
 1. The *client* responds and sends a _pressed key_ or a _token package_
 2. The *server* does as point 1.
-and so the loop contiues.
+and so the loop continues.
 
-Alternatively, other *clients* may be added to the ring. Then the *clients* sends packages to each other and then to the *server*. The packages contains a _table_ with all known keys pressed lately. With each forwarding, the *peer* changes the _table_ due to its own key pressed.
+Alternatively, other *clients* may be added to the ring. Then *clients* needs to send packages to each other and the *server*. Therefore, all packages contain a _table_ with all known keys pressed lately. With each forwarding, the *peer* changes the _table_ due to its own key pressed.
 
 = Shutting down the network =
 
