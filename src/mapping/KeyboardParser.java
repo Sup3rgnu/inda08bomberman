@@ -72,44 +72,48 @@ public class KeyboardParser {
 			// goLeft
 			if (debugging ) {
 				System.out.println("Local LEFT");		//OK
-				networking.Network.nextKey = VK_LEFT;
 			}
+			networking.Network.nextKey = VK_LEFT;
+			mapping.Movement.goLeft();
 		}else if (c == VK_RIGHT){
 			//goRight
 			if (debugging ) {
 				System.out.println("Local RIGHT");		//OK
-				networking.Network.nextKey = VK_RIGHT;
 			}
+			networking.Network.nextKey = VK_RIGHT;
+			mapping.Movement.goRight();
 		}else if (c == VK_UP){
 			//goUp
 			if (debugging ) {
 				System.out.println("Local UP");			//OK
-				networking.Network.nextKey = VK_UP;
 			}
+			networking.Network.nextKey = VK_UP;
+			mapping.Movement.goUp();
 		}else if (c == VK_DOWN){
 			//goDown
 			if (debugging ) {
 				System.out.println("Local DOWN");		//OK
-				networking.Network.nextKey = VK_DOWN;
 			}
+			networking.Network.nextKey = VK_DOWN;
+			mapping.Movement.goDown();
 		}else if (c == SPACE){
 			//dropBomb
 			if (debugging ) {
 				System.out.println("Local SPACE");		//OK
-				networking.Network.nextKey = SPACE;
 			}
+			networking.Network.nextKey = SPACE;
 		}else if (c == ESCAPE){
 			//esc
 			if (debugging ) {
 				System.out.println("Local ESCAPE");		//OK
-				networking.Network.nextKey = ESCAPE;
 			}
+			networking.Network.nextKey = ESCAPE;
 		}else if (c == VK_Q){
 			//disconnect
 			if (debugging ) {
 				System.out.println("Local DISCONNECT");	//OK
-				networking.Network.nextKey = VK_Q;
 			}
+			networking.Network.nextKey = VK_Q;
 		}else{
 			//doNothing
 			if (debugging ) {
