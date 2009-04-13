@@ -16,6 +16,7 @@ public class KeyboardParser {
 	private static final byte VK_DOWN = 40;
 	private static final byte SPACE = 32;
 	private static final byte ESCAPE = 27;
+	private static final byte VK_Q = 0;		//TODO
 	
 	public void netParse(byte c) {
 		if (debugging ) {
@@ -50,6 +51,11 @@ public class KeyboardParser {
 			//esc
 			if (debugging ) {
 				System.out.println("Remote ESCAPE");
+			}
+		}else if (c == VK_Q){
+			//disconnect
+			if (debugging) {
+				System.out.println("Remote DISCONNECT");
 			}
 		}else{													//OK
 			//doNothing
@@ -95,6 +101,12 @@ public class KeyboardParser {
 			if (debugging ) {
 				System.out.println("Local ESCAPE");		//OK
 				networking.Network.nextKey = ESCAPE;
+			}
+		}else if (c == VK_Q){
+			//disconnect
+			if (debugging ) {
+				System.out.println("Local DISCONNECT");
+				networking.Network.nextKey = VK_Q;
 			}
 		}else{
 			//doNothing

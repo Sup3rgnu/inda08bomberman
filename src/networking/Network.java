@@ -74,7 +74,9 @@ abstract public class Network {
 	    		networkOutput.flush();			// Send one-char packets for speed
 	    		nextKey = nullChar;
 	    		//System.out.println("Sent a package");
-	    		if (nextKey == (byte) 81 || nextKey == (byte) 113) {		
+	    		if (nextKey == (byte) 81 || nextKey == (byte) 113 || 
+	    				incomingChar == (byte) 81 || incomingChar == (byte) 113) {	
+	    			
 	    			/* Disconnect */
 	    			drawing.Popup.popupMessage("Disconnected");
 	    			online = false;		
