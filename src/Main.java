@@ -11,7 +11,7 @@ public class Main {
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws IOException {
-		boolean isServer = false;
+		boolean isServer = true;
 		// TODO:s, format: TODO: <thing to do> (<package>, <assigned-to>
 		
 		
@@ -20,6 +20,7 @@ public class Main {
 		// Just a test, not supposed to be called from here. Check out the Popup class!
 		drawing.Popup.createPlayers(1); 
 		drawing.Popup.requestIp(); 
+		DrawWindow.DrawWindowmain();
 		
 		// TODO: Initialize map (mapping, Mikael)
 		mapping.Map.startMap();
@@ -44,8 +45,7 @@ public class Main {
 			mapping.Map.drawBoard();
 			networking.Client.startClient();
 		}
-		/* Draw the main window */
-		DrawWindow.DrawWindowmain();
+		
 		
 		// TODO: Change data as packets request (dataCollecting, Mikael)
 		// TODO: Change map according to network packages (mapping, Mikael)

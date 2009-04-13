@@ -2,10 +2,11 @@ package networking;
 
 import java.io.DataInputStream;
 import java.io.IOException;
-//import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
 import java.net.SocketException;
+
+import drawing.DrawWindow;
 
 /**
  * Properties and functions representing the network protocol.
@@ -83,6 +84,8 @@ abstract public class Network {
 	    			break;				// Not necessary with the online boolean
 	    		} else {
 	    			// Continue loop
+	    			/* Draw the main window */
+	    			DrawWindow.dw.update().paint();
 	    		}
 	    	}
 	        

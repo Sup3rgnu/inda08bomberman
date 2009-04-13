@@ -13,7 +13,11 @@ import javax.swing.JFrame;
 
 import userInputHandling.KeyHandler;
 
+
+
 public class DrawWindow extends JFrame {
+	
+	public static DrawWindow dw = new DrawWindow();
 	
 	private static final long serialVersionUID = 7669473739626066784L;
 	
@@ -132,10 +136,9 @@ public class DrawWindow extends JFrame {
     }
 		
 	public static void DrawWindowmain() throws IOException {
-	DrawWindow dw = new DrawWindow();
+	
 	dw.setTitle( "Bomberman" );
 	dw.setVisible( true );
 	dw.run();
-    
   	}
 }
