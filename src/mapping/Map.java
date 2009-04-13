@@ -6,21 +6,20 @@ abstract public class Map {
 	final static int STONE = 1;  // Square with a stone in it
 	final static int UNBREAKABLE = 2; // Unbreakable path, a player can't stand here
 
-	final static int PLAYER1 = 3;   // Square where player 1 is
-	final static int PLAYER2 = 4;   // Square where player 2 is
+	public final static int PLAYER1 = 3;   // Square where player 1 is
+	public final static int PLAYER2 = 4;   // Square where player 2 is
 	final static int BOMB1 = -1; // Square with player1 has placed a bomb
 	final static int BOMB2 = -2; // Square with player2 has placed a bomb
 
-	final static int HEIGHT = 6; // Height of the board
-	final static int WIDTH = 6; // Width of the board
+	public final static int HEIGHT = 6; // Height of the board
+	public final static int WIDTH = 6; // Width of the board
 	
-	static int PLAYERPOSY = 1;
-	static int PLAYERPOSX = 1;
+	public static int PLAYERPOSY = 1;
+	public static int PLAYERPOSX = 1;
+	public static int PLAYER2POSY = HEIGHT-2;
+	public static int PLAYER2POSX = WIDTH-2;
 
-	static int PLAYER2POSY = HEIGHT-2;
-	static int PLAYER2POSX = WIDTH-2;
-
-	static int[][] board = new int[HEIGHT][WIDTH]; 
+	public static int[][] board = new int[HEIGHT][WIDTH]; 
 
 	public static void startMap(){
 
@@ -48,11 +47,6 @@ abstract public class Map {
 			for (int j=WIDTH-1; j <= WIDTH-1; j++)
 				board[i][j] = UNBREAKABLE;
 
-		// Players starting positions, diagonally across from each other
-
-		board[1][1] = PLAYER1;
-
-		board[HEIGHT-2][WIDTH-2] = PLAYER2;
 	}
 
 		public static void drawBoard(){

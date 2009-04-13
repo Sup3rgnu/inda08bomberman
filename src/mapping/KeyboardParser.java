@@ -29,26 +29,30 @@ public class KeyboardParser {
 			if (debugging ) {
 				System.out.println("Remote LEFT");
 			}
+			mapping.Movement.goLeft2();
 		}else if (c == VK_RIGHT){								//OK
 			//goRight
 			if (debugging ) {
 				System.out.println("Remote RIGHT");
 			}
+			mapping.Movement.goRight2();
 		}else if (c == VK_UP){									//OK
 			//goUp
 			if (debugging ) {
 				System.out.println("Remote UP");
 			}
+			mapping.Movement.goUp2();
 		}else if (c == VK_DOWN){								//OK
 			//goDown
 			if (debugging ) {
 				System.out.println("Remote DOWN");
 			} 
+			mapping.Movement.goDown2();
 		}else if (c == SPACE){									//OK
 			//dropBomb
 			if (debugging ) {
 				System.out.println("Remote SPACE");
-			}
+			}		
 		}else if (c == ESCAPE){									//OK
 			//esc
 			if (debugging ) {
