@@ -74,12 +74,12 @@ abstract public class Network {
 	    		networkOutput.flush();			// Send one-char packets for speed
 	    		nextKey = nullChar;
 	    		//System.out.println("Sent a package");
-	    		if (nextKey == (byte) 81 || nextKey == (byte) 113 || 
-	    		incomingChar == (byte) 81 || incomingChar == (byte) 113) {	
+	    		if (nextKey == mapping.KeyboardParser.VK_Q ||
+	    				incomingChar == mapping.KeyboardParser.VK_Q) {	
 	    			System.out.println("Found key Q pressed");
 	    			/* Disconnect */
 	    			drawing.Popup.popupMessage("Disconnected");
-	    			online = false;		
+	    			online = false;
 	    			break;				// Not necessary with the online boolean
 	    		} else {
 	    			// Continue loop

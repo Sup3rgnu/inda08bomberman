@@ -1,7 +1,5 @@
 package mapping;
 
-import java.awt.event.KeyEvent;
-
 /**
  * byte appeared to be better than char due to unicode troubles
  * @author 
@@ -18,7 +16,9 @@ public class KeyboardParser {
 	private static final byte VK_DOWN = 40;
 	private static final byte SPACE = 32;
 	private static final byte ESCAPE = 27;
-	private static final byte VK_Q = (byte) KeyEvent.VK_Q;
+	public static final byte VK_Q = (byte) 81;
+	private static final byte VK_BIGQ = (byte) 113;
+	
 	
 	public void netParse(byte c) {
 		if (debugging ) {
@@ -108,7 +108,7 @@ public class KeyboardParser {
 				System.out.println("Local ESCAPE");		//OK
 			}
 			networking.Network.nextKey = ESCAPE;
-		}else if (c == VK_Q){
+		}else if (c == VK_Q || c == VK_BIGQ ){
 			//disconnect
 			if (debugging ) {
 				System.out.println("Local DISCONNECT");	//OK
