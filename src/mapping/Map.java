@@ -2,17 +2,17 @@ package mapping;
 
 abstract public class Map {
 
-	final static int FREE = 0;  // Empty square
+	public final static int FREE = 0;  // Empty square
 	final static int STONE = 1;  // Square with a stone in it
-	final static int UNBREAKABLE = 2; // Unbreakable path, a player can't stand here
+	public final static int UNBREAKABLE = 2; // Unbreakable path, a player can't stand here
 
 	public final static int PLAYER1 = 3;   // Square where player 1 is
 	public final static int PLAYER2 = 4;   // Square where player 2 is
 	final static int BOMB1 = -1; // Square with player1 has placed a bomb
 	final static int BOMB2 = -2; // Square with player2 has placed a bomb
 
-	public final static int HEIGHT = 6; // Height of the board
-	public final static int WIDTH = 6; // Width of the board
+	public final static int HEIGHT = 24; // Height of the board
+	public final static int WIDTH = 24; // Width of the board
 	
 	public static int PLAYERPOSY = 1;
 	public static int PLAYERPOSX = 1;
@@ -20,6 +20,7 @@ abstract public class Map {
 	public static int PLAYER2POSX = WIDTH-2;
 
 	public static int[][] board = new int[HEIGHT][WIDTH]; 
+
 
 	public static void startMap(){
 

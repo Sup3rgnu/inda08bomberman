@@ -21,14 +21,12 @@ public class Main {
 		drawing.Popup.createPlayers(1); 
 		drawing.Popup.requestIp(); 
 		
-		/* Draw the main window */
-		DrawWindow.DrawWindowmain();
-		
 		// TODO: Initialize map (mapping, Mikael)
 		mapping.Map.startMap();
 		// TODO: Draw the map (drawing, Jonathan)
 		// TODO: Ask for IP-address(-es) in a dialog
-		
+
+			
 		
 		/* Start a server or a client */
 		if (isServer) {
@@ -46,6 +44,8 @@ public class Main {
 			mapping.Map.drawBoard();
 			networking.Client.startClient();
 		}
+		/* Draw the main window */
+		DrawWindow.DrawWindowmain();
 		
 		// TODO: Change data as packets request (dataCollecting, Mikael)
 		// TODO: Change map according to network packages (mapping, Mikael)
