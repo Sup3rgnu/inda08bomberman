@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 import drawing.DrawWindow;
 
 public class Main {
@@ -6,8 +8,9 @@ public class Main {
 	/**
 	 * @param args
 	 * @author C,M,J
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		boolean isServer = false;
 		// TODO:s, format: TODO: <thing to do> (<package>, <assigned-to>
 		
@@ -15,21 +18,32 @@ public class Main {
 		System.out.println("Game starting");	
 		
 		// Just a test, not supposed to be called from here. Check out the Popup class!
-		drawing.Popup.createPlayers(2); 
+		drawing.Popup.createPlayers(1); 
 		drawing.Popup.requestIp(); 
 		
 		/* Draw the main window */
 		DrawWindow.DrawWindowmain();
 		
 		// TODO: Initialize map (mapping, Mikael)
+		mapping.Map.startMap();
 		// TODO: Draw the map (drawing, Jonathan)
 		// TODO: Ask for IP-address(-es) in a dialog
 		
 		
 		/* Start a server or a client */
 		if (isServer) {
+			mapping.Map.board[1][1] = mapping.Map.PLAYER1;
+			mapping.Map.board[mapping.Map.HEIGHT-2][mapping.Map.WIDTH-2] = mapping.Map.PLAYER2;
+			mapping.Map.drawBoard();
 			networking.Server.startServer();
 		} else {
+			mapping.Map.board[1][1] = mapping.Map.PLAYER2;
+			mapping.Map.board[mapping.Map.HEIGHT-2][mapping.Map.WIDTH-2] = mapping.Map.PLAYER1;
+			mapping.Map.PLAYERPOSY = mapping.Map.HEIGHT-2;
+			mapping.Map.PLAYERPOSX = mapping.Map.WIDTH-2;
+			mapping.Map.PLAYER2POSY = 1;
+			mapping.Map.PLAYER2POSX = 1;
+			mapping.Map.drawBoard();
 			networking.Client.startClient();
 		}
 		
