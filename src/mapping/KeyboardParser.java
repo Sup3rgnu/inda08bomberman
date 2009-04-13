@@ -1,5 +1,7 @@
 package mapping;
 
+import java.awt.event.KeyEvent;
+
 /**
  * byte appeared to be better than char due to unicode troubles
  * @author 
@@ -16,7 +18,7 @@ public class KeyboardParser {
 	private static final byte VK_DOWN = 40;
 	private static final byte SPACE = 32;
 	private static final byte ESCAPE = 27;
-	private static final byte VK_Q = 0;		//TODO
+	private static final byte VK_Q = (byte) KeyEvent.VK_Q;
 	
 	public void netParse(byte c) {
 		if (debugging ) {
