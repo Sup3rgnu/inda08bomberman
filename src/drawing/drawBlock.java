@@ -27,11 +27,4 @@ public class drawBlock {
     if( g2d != null ) 
     	g2d.dispose();
   	}
-	
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
 }
