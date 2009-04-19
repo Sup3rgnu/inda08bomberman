@@ -28,12 +28,14 @@ public class KeyboardParser {
 			// goLeft
 			if (debugging ) {
 				System.out.println("Remote LEFT");
+				System.out.println("LEFT");
 			}
 			mapping.Movement.goLeft2();
 		}else if (c == VK_RIGHT){								//OK
 			//goRight
 			if (debugging ) {
 				System.out.println("Remote RIGHT");
+				System.out.println("RIGHT");
 			}
 			mapping.Movement.goRight2();
 		}else if (c == VK_UP){									//OK

@@ -5,7 +5,8 @@ public class Movement {
 	static public void goLeft(){
 		if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX-1] == Map.FREE){
 			Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.FREE;
-			Map.board[Map.PLAYERPOSY][--Map.PLAYERPOSX] = Map.PLAYER1; 
+			Map.board[Map.PLAYERPOSY][--Map.PLAYERPOSX] = Map.PLAYER1;
+			mapping.Map.drawBoard();
 		}else{}
 	}
 
@@ -29,6 +30,7 @@ public class Movement {
 		if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX+1] == Map.FREE){
 			Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.FREE;
 			Map.board[Map.PLAYERPOSY][++Map.PLAYERPOSX] = Map.PLAYER1; 
+			mapping.Map.drawBoard();
 		}else{}
 	}
 
