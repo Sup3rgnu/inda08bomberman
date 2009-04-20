@@ -54,7 +54,8 @@ public class KeyboardParser {
 			//dropBomb
 			if (debugging ) {
 				System.out.println("Remote SPACE");
-			}		
+			}	
+			mapping.Movement.dropBomb2();
 		}else if (c == ESCAPE){									//OK
 			//esc
 			if (debugging ) {
@@ -108,6 +109,7 @@ public class KeyboardParser {
 				System.out.println("Local SPACE");		//OK
 			}
 			networking.Network.nextKey = SPACE;
+			mapping.Movement.dropBomb();
 		}else if (c == ESCAPE){
 			//esc
 			if (debugging ) {

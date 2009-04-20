@@ -4,65 +4,120 @@ public class Movement {
 
 	static public void goLeft(){
 		if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX-1] == Map.FREE){
-			Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.FREE;
-			Map.board[Map.PLAYERPOSY][--Map.PLAYERPOSX] = Map.PLAYER1;
-			mapping.Map.drawBoard();
+			if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] == Map.BOMB1){			//Might have to check for more stuff, bomb2, player2 etc.
+				Map.board[Map.PLAYERPOSY][--Map.PLAYERPOSX] = Map.PLAYER1;
+				mapping.Map.drawBoard();	
+			}else{
+				Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.FREE;
+				Map.board[Map.PLAYERPOSY][--Map.PLAYERPOSX] = Map.PLAYER1;
+				mapping.Map.drawBoard();}
 		}else{}
 	}
 
 	static public void goUp(){
 		if(Map.board[Map.PLAYERPOSY-1][Map.PLAYERPOSX] == Map.FREE){
-			Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.FREE;
-			Map.board[--Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.PLAYER1;
-			mapping.Map.drawBoard();
+			if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] == Map.BOMB1){
+				Map.board[--Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.PLAYER1;
+				mapping.Map.drawBoard();
+			}else{
+				Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.FREE;
+				Map.board[--Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.PLAYER1;
+				mapping.Map.drawBoard();}
 		}else{}
 	}
 
 	static public void goDown(){
 		if(Map.board[Map.PLAYERPOSY+1][Map.PLAYERPOSX] == Map.FREE){
-			Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.FREE;
-			Map.board[++Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.PLAYER1;
-			mapping.Map.drawBoard();
+			if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] == Map.BOMB1){
+				Map.board[++Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.PLAYER1;
+				mapping.Map.drawBoard();
+			}else{
+				Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.FREE;
+				Map.board[++Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.PLAYER1;
+				mapping.Map.drawBoard();}
 		}else{}
 	}
 
 	static public void goRight(){
 		if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX+1] == Map.FREE){
-			Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.FREE;
-			Map.board[Map.PLAYERPOSY][++Map.PLAYERPOSX] = Map.PLAYER1; 
+			if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] == Map.BOMB1){
+				Map.board[Map.PLAYERPOSY][++Map.PLAYERPOSX] = Map.PLAYER1; 
+				mapping.Map.drawBoard();
+			}else{
+				Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.FREE;
+				Map.board[Map.PLAYERPOSY][++Map.PLAYERPOSX] = Map.PLAYER1; 
+				mapping.Map.drawBoard();}
+		}else{}
+	}
+
+	static public void dropBomb(){
+		if(Map.bombOnBoard == false){
+			Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.BOMB1;
+			Map.BOMBPOSY = Map.PLAYERPOSY;
+			Map.BOMBPOSX = Map.PLAYERPOSX;
+			Map.BOMBTIMER = Map.timer + 400;
 			mapping.Map.drawBoard();
+			Map.bombOnBoard = true;
 		}else{}
 	}
 
 	static public void goLeft2(){
 		if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX-1] == Map.FREE){
-			Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.FREE;
-			Map.board[Map.PLAYER2POSY][--Map.PLAYER2POSX] = Map.PLAYER2; 
+			if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] == Map.BOMB2){
+				Map.board[Map.PLAYER2POSY][--Map.PLAYER2POSX] = Map.PLAYER2;
+				mapping.Map.drawBoard();
+			}else{
+				Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.FREE;
+				Map.board[Map.PLAYER2POSY][--Map.PLAYER2POSX] = Map.PLAYER2;
+				mapping.Map.drawBoard();}
 		}else{}
 	}
 
 	static public void goUp2(){
 		if(Map.board[Map.PLAYER2POSY-1][Map.PLAYER2POSX] == Map.FREE){
-			Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.FREE;
-			Map.board[--Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.PLAYER2;
-			mapping.Map.drawBoard();
+			if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] == Map.BOMB2){
+				Map.board[--Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.PLAYER2;
+				mapping.Map.drawBoard();
+			}else{
+				Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.FREE;
+				Map.board[--Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.PLAYER2;
+				mapping.Map.drawBoard();}
 		}else{}
 	}
 
 	static public void goDown2(){
 		if(Map.board[Map.PLAYER2POSY+1][Map.PLAYER2POSX] == Map.FREE){
-			Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.FREE;
-			Map.board[++Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.PLAYER2;
-			mapping.Map.drawBoard();
+			if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] == Map.BOMB2){
+				Map.board[++Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.PLAYER2;
+				mapping.Map.drawBoard();
+			}else{
+				Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.FREE;
+				Map.board[++Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.PLAYER2;
+				mapping.Map.drawBoard();}
 		}else{}
 	}
 
 	static public void goRight2(){
 		if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX+1] == Map.FREE){
-			Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.FREE;
-			Map.board[Map.PLAYER2POSY][++Map.PLAYER2POSX] = Map.PLAYER2; 
+			if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] == Map.BOMB2){
+				Map.board[Map.PLAYER2POSY][++Map.PLAYER2POSX] = Map.PLAYER2;
+				mapping.Map.drawBoard();
+			}else{	
+				Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.FREE;
+				Map.board[Map.PLAYER2POSY][++Map.PLAYER2POSX] = Map.PLAYER2;
+				mapping.Map.drawBoard();}
+		}else{}
+	} 
+
+	static public void dropBomb2(){
+		if(Map.bomb2OnBoard == false){
+			Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.BOMB2;
+			Map.BOMB2POSY = Map.PLAYER2POSY;
+			Map.BOMB2POSX = Map.PLAYER2POSX;
+			Map.BOMB2TIMER = Map.timer + 400;
+			Map.bomb2OnBoard = true;
 		}else{}
 	}
-
-	
 }
+
+
