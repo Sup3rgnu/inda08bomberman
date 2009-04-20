@@ -203,6 +203,7 @@ abstract public class Map {
 
 		for(int i=bombposy+1; i<=bombposy+BOMBRADIUS; i++){
 			if(i >= HEIGHT){
+				continue;
 			}else if(Map.board[i][bombposx] == Map.STONE && (i-bombposy <= BOMBRADIUS)){
 				Map.board[i][bombposx] = Map.FREE;
 				bombflagA = true;
@@ -214,6 +215,7 @@ abstract public class Map {
 
 		for(int i=bombposy-1; i<=bombposy-BOMBRADIUS; i--){
 			if(i <= 0){
+				continue;
 			}else if(Map.board[i][bombposx] == Map.STONE && (bombposy-i <= BOMBRADIUS)){
 				Map.board[i][bombposx] = Map.FREE;
 				bombflagB = true;
@@ -228,6 +230,7 @@ abstract public class Map {
 
 		for(int i=bombposx+1; i<=bombposx+BOMBRADIUS; i++){
 			if(i >= WIDTH){
+				continue;
 			}else if(Map.board[bombposy][i] == Map.STONE && (i-bombposx <= BOMBRADIUS)){
 				Map.board[bombposy][i] = Map.FREE;
 				bombflagC = true;
@@ -239,6 +242,7 @@ abstract public class Map {
 
 		for(int i=bombposx-1; i<=bombposx-BOMBRADIUS; i--){
 			if(i <= 0){
+				continue;
 			}else if(Map.board[i][bombposx] == Map.STONE && (bombposx-i <= BOMBRADIUS)){
 				Map.board[bombposy][i] = Map.FREE;
 				bombflagD = true;
