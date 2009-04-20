@@ -6,7 +6,6 @@ import java.io.PrintStream;
 import java.net.Socket;
 import java.net.SocketException;
 
-import drawing.DrawWindow;
 
 /**
  * Properties and functions representing the network protocol.
@@ -86,7 +85,7 @@ abstract public class Network {
 	    			// Continue loop
 	    			mapping.Map.bombTick();
 	    			/* Draw the main window */
-	    			//DrawWindow.dw.update().paint();				//TODO uncomment
+	    			drawing.DrawWindow.dw.update(drawing.DrawWindow.dw.getGraphics());
 	    		}
 	    	}
 	        
