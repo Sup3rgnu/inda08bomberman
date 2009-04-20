@@ -10,6 +10,7 @@ abstract public class Map {
 	public final static int PLAYER2 = 4;   // Square where player 2 is
 	public final static int BOMB1 = 8; // Square with player1 has placed a bomb
 	public final static int BOMB2 = 9; // Square with player2 has placed a bomb
+	public final static int EXPLOSION = 5;
 
 	public final static int HEIGHT = 16; // Height of the board
 	public final static int WIDTH = 16; // Width of the board
@@ -136,7 +137,7 @@ abstract public class Map {
 	public static void bomb(int t){
 		int bombposx;
 		int bombposy;
-		
+
 		if(t == 2){
 			bombposx = BOMB2POSX;
 			bombposy = BOMB2POSY;
@@ -145,7 +146,57 @@ abstract public class Map {
 			bombposy = BOMBPOSY;
 		}
 
-		Map.board[bombposy][bombposx] = Map.FREE;			//NOT FREE, should be something like "bomb fire/explosion" for awhile..
+		//Checks the squares (BOMBRADIUS) around the "bomb-square", for UNBREAKABLE squares, if found it will 
+		//abort to create explosion squares.  
+
+
+		for(int i = bombposx; i >= bombposx-BOMBRADIUS; i--){
+			if(i<=1 || Map.board[bombposy][i] == Map.UNBREAKABLE){
+				break;
+			}else if(Map.board[bombposy][i] == Map.PLAYER2){
+				drawing.Popup.popupMessage("Player 1 won!");
+			}else if(Map.board[i][bombposx] == Map.PLAYER1){
+				drawing.Popup.popupMessage("Player 2 won!");
+			}else{
+				Map.board[bombposy][i] = Map.EXPLOSION;
+			}
+		}
+
+		for(int i = bombposx; i <= bombposx+BOMBRADIUS; i++){
+			if(i>=WIDTH-1 || Map.board[bombposy][i] == Map.UNBREAKABLE){
+				break;
+			}else if(Map.board[bombposy][i] == Map.PLAYER2){
+				drawing.Popup.popupMessage("Player 1 won!");
+			}else if(Map.board[i][bombposx] == Map.PLAYER1){
+				drawing.Popup.popupMessage("Player 2 won!");
+			}else{
+				Map.board[bombposy][i] = Map.EXPLOSION;
+			}
+		}
+
+		for(int i = bombposy; i >= bombposy-BOMBRADIUS; i--){
+			if(i<=1 || Map.board[i][bombposx] == Map.UNBREAKABLE){
+				break;
+			}else if(Map.board[bombposy][i] == Map.PLAYER2){
+				drawing.Popup.popupMessage("Player 1 won!");
+			}else if(Map.board[i][bombposx] == Map.PLAYER1){
+				drawing.Popup.popupMessage("Player 2 won!");
+			}else{
+				Map.board[i][bombposx] = Map.EXPLOSION;
+			}
+		}
+
+		for(int i = bombposy; i <= bombposy+BOMBRADIUS; i++){
+			if(i>=HEIGHT-1 || Map.board[i][bombposx] == Map.UNBREAKABLE){
+				break;
+			}else if(Map.board[bombposy][i] == Map.PLAYER2){
+				drawing.Popup.popupMessage("Player 1 won!");
+			}else if(Map.board[i][bombposx] == Map.PLAYER1){
+				drawing.Popup.popupMessage("Player 2 won!");
+			}else{
+				Map.board[i][bombposx] = Map.EXPLOSION;
+			}
+		}		
 
 		boolean bombflagA = false;
 		boolean bombflagB = false;
@@ -196,7 +247,7 @@ abstract public class Map {
 				bombflagD = true;
 			}
 		}
-		
+
 		bombOnBoard = false;
 	}
 
