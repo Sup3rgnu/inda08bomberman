@@ -18,12 +18,14 @@ public class Main {
 		System.out.println("Game starting");	
 		
 		// Just a test, not supposed to be called from here. Check out the Popup class!
+		
 		drawing.Popup.createPlayers(1); 
 		drawing.Popup.requestIp(); 
+		mapping.Map.startMap();
 		DrawWindow.DrawWindowmain();
 		
 		// TODO: Initialize map (mapping, Mikael)
-		mapping.Map.startMap();
+		
 		// TODO: Draw the map (drawing, Jonathan)
 		// TODO: Ask for IP-address(-es) in a dialog
 
