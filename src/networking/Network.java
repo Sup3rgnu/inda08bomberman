@@ -84,8 +84,9 @@ abstract public class Network {
 	    			break;				// Not necessary with the online boolean
 	    		} else {
 	    			// Continue loop
+	    			mapping.Map.bombTick();
 	    			/* Draw the main window */
-	    			DrawWindow.dw.update().paint();
+	    			//DrawWindow.dw.update().paint();				//TODO uncomment
 	    		}
 	    	}
 	        
