@@ -146,112 +146,71 @@ abstract public class Map {
 			bombposy = BOMBPOSY;
 		}
 
-		//Checks the squares (BOMBRADIUS) around the "bomb-square", for UNBREAKABLE squares, if found it will 
-		//abort to create explosion squares.  
 
-
-		for(int i = bombposx; i >= bombposx-BOMBRADIUS; i--){
+		for(int i = bombposx; i >= bombposx-BOMBRADIUS; i--){		 
 			if(i<=1 || Map.board[bombposy][i] == Map.UNBREAKABLE){
 				break;
 			}else if(Map.board[bombposy][i] == Map.PLAYER2){
 				drawing.Popup.popupMessage("Player 1 won!");
-			}else if(Map.board[i][bombposx] == Map.PLAYER1){
+			}else if(Map.board[bombposy][i] == Map.PLAYER1){
 				drawing.Popup.popupMessage("Player 2 won!");
+			}else if(Map.board[bombposy][i] == Map.STONE){
+				Map.board[bombposy][i] = Map.EXPLOSION;
+				break;
 			}else{
 				Map.board[bombposy][i] = Map.EXPLOSION;
 			}
 		}
-
-		for(int i = bombposx; i <= bombposx+BOMBRADIUS; i++){
+		
+		for(int i = bombposx; i <= bombposx+BOMBRADIUS; i++){		 
 			if(i>=WIDTH-1 || Map.board[bombposy][i] == Map.UNBREAKABLE){
 				break;
 			}else if(Map.board[bombposy][i] == Map.PLAYER2){
 				drawing.Popup.popupMessage("Player 1 won!");
-			}else if(Map.board[i][bombposx] == Map.PLAYER1){
+			}else if(Map.board[bombposy][i] == Map.PLAYER1){
 				drawing.Popup.popupMessage("Player 2 won!");
+			}else if(Map.board[bombposy][i] == Map.STONE){
+				Map.board[bombposy][i] = Map.EXPLOSION;
+				break;
 			}else{
 				Map.board[bombposy][i] = Map.EXPLOSION;
 			}
 		}
-
-		for(int i = bombposy; i >= bombposy-BOMBRADIUS; i--){
+		
+		for(int i = bombposy; i >= bombposy-BOMBRADIUS; i--){		 
 			if(i<=1 || Map.board[i][bombposx] == Map.UNBREAKABLE){
 				break;
-			}else if(Map.board[bombposy][i] == Map.PLAYER2){
+			}else if(Map.board[i][bombposx] == Map.PLAYER2){
 				drawing.Popup.popupMessage("Player 1 won!");
 			}else if(Map.board[i][bombposx] == Map.PLAYER1){
 				drawing.Popup.popupMessage("Player 2 won!");
+			}else if(Map.board[i][bombposx] == Map.STONE){
+				Map.board[i][bombposx] = Map.EXPLOSION;
+				break;
 			}else{
 				Map.board[i][bombposx] = Map.EXPLOSION;
 			}
 		}
-
-		for(int i = bombposy; i <= bombposy+BOMBRADIUS; i++){
+		
+		for(int i = bombposy; i <= bombposy+BOMBRADIUS; i++){		 
 			if(i>=HEIGHT-1 || Map.board[i][bombposx] == Map.UNBREAKABLE){
 				break;
-			}else if(Map.board[bombposy][i] == Map.PLAYER2){
+			}else if(Map.board[i][bombposx] == Map.PLAYER2){
 				drawing.Popup.popupMessage("Player 1 won!");
 			}else if(Map.board[i][bombposx] == Map.PLAYER1){
 				drawing.Popup.popupMessage("Player 2 won!");
+			}else if(Map.board[i][bombposx] == Map.STONE){
+				Map.board[i][bombposx] = Map.EXPLOSION;
+				break;
 			}else{
 				Map.board[i][bombposx] = Map.EXPLOSION;
 			}
-		}		
-
-		boolean bombflagA = false;
-		boolean bombflagB = false;
-
-		for(int i=bombposy+1; i<=bombposy+BOMBRADIUS; i++){
-			if(i >= HEIGHT){
-				continue;
-			}else if(Map.board[i][bombposx] == Map.STONE && (i-bombposy <= BOMBRADIUS)){
-				Map.board[i][bombposx] = Map.FREE;
-				bombflagA = true;
-			}else if(Map.board[i+1][bombposx] == Map.STONE && (i+1 <= BOMBRADIUS) && Map.board[i][bombposx] == Map.FREE && bombflagA == false){
-				Map.board[i+1][bombposx] = Map.FREE;
-				bombflagA =true;
-			}
 		}
-
-		for(int i=bombposy-1; i<=bombposy-BOMBRADIUS; i--){
-			if(i <= 0){
-				continue;
-			}else if(Map.board[i][bombposx] == Map.STONE && (bombposy-i <= BOMBRADIUS)){
-				Map.board[i][bombposx] = Map.FREE;
-				bombflagB = true;
-			}else if(Map.board[i-1][bombposx] == Map.STONE && (bombposy-(i-1) <= BOMBRADIUS) && Map.board[i][bombposx] == Map.FREE && bombflagB == false){
-				Map.board[i+1][bombposx] = Map.FREE;
-				bombflagB = true;
-			}
-		}
-
-		boolean bombflagC = false;
-		boolean bombflagD = false;
-
-		for(int i=bombposx+1; i<=bombposx+BOMBRADIUS; i++){
-			if(i >= WIDTH){
-				continue;
-			}else if(Map.board[bombposy][i] == Map.STONE && (i-bombposx <= BOMBRADIUS)){
-				Map.board[bombposy][i] = Map.FREE;
-				bombflagC = true;
-			}else if(Map.board[bombposy][i+1] == Map.STONE && (i+1 <= BOMBRADIUS) && Map.board[bombposy][i] == Map.FREE && bombflagC == false){
-				Map.board[bombposy][i+1] = Map.FREE;
-				bombflagC =true;
-			}
-		}
-
-		for(int i=bombposx-1; i<=bombposx-BOMBRADIUS; i--){
-			if(i <= 0){
-				continue;
-			}else if(Map.board[i][bombposx] == Map.STONE && (bombposx-i <= BOMBRADIUS)){
-				Map.board[bombposy][i] = Map.FREE;
-				bombflagD = true;
-			}else if(Map.board[bombposy][i-1] == Map.STONE && (bombposx-(i-1) <= BOMBRADIUS) && Map.board[bombposy][i] == Map.FREE && bombflagD == false){
-				Map.board[bombposy][i+1] = Map.FREE;
-				bombflagD = true;
-			}
-		}
-
+		
+		
+		//Some kind of delay before the exploding graphics disappear. Then bombOnBoard = false, 
+		//so it's possible to drop a new bomb.   	
+		 		
 		bombOnBoard = false;
 	}
 
