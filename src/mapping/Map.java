@@ -210,8 +210,9 @@ abstract public class Map {
 		
 		//Some kind of delay before the exploding graphics disappear. Then bombOnBoard = false, 
 		//so it's possible to drop a new bomb.   	
-		 		
+		
 		bombOnBoard = false;
+		bomb2OnBoard = false;
 	}
 
 
