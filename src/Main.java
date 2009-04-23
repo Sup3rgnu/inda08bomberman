@@ -14,7 +14,7 @@ public class Main {
 		// TODO:s, format: TODO: <thing to do> (<package>, <assigned-to>
 		
 		
-		System.out.println("Game starting");	
+		System.out.println("Game starting");
 		
 		// Just a test, not supposed to be called from here. Check out the Popup class!
 		

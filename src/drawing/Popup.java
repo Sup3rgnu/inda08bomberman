@@ -27,7 +27,7 @@ abstract public class Popup {
 		if(!input.isEmpty()) {
 			return input;
 		} else {
-			return networking.Network.serverIP;			// Preserve the default
+			return null;
 		}
 	}
 
@@ -62,8 +62,9 @@ abstract public class Popup {
 
 	
 	static public void requestIp(){
-		String newIP = popupInput("Enter your friend's IP (Ex: 192.168.0.2)");
-		if (newIP == "") {
+		String newIP = popupInput("Enter server IP (Ex: 192.168.0.2) or leave empty for server");
+		System.out.println(newIP);
+		if (newIP == null) {
 			networking.Network.isServer = true;
 		} else {
 			networking.Network.isServer = false;
