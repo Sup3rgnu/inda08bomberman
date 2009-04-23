@@ -11,7 +11,6 @@ public class Main {
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws IOException {
-		boolean isServer = true;
 		// TODO:s, format: TODO: <thing to do> (<package>, <assigned-to>
 		
 		
@@ -32,7 +31,7 @@ public class Main {
 			
 		
 		/* Start a server or a client */
-		if (isServer) {
+		if (networking.Network.isServer) {
 			mapping.Map.board[1][1] = mapping.Map.PLAYER1;
 			mapping.Map.board[mapping.Map.HEIGHT-2][mapping.Map.WIDTH-2] = mapping.Map.PLAYER2;
 			mapping.Map.drawBoard();

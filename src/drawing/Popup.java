@@ -63,7 +63,10 @@ abstract public class Popup {
 	
 	static public void requestIp(){
 		String newIP = popupInput("Enter your friend's IP (Ex: 192.168.0.2)");
-		if (newIP != "") {
+		if (newIP == "") {
+			networking.Network.isServer = true;
+		} else {
+			networking.Network.isServer = false;
 			networking.Network.serverIP = newIP;
 		}
 		

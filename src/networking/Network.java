@@ -24,6 +24,7 @@ abstract public class Network {
 	static final int GAMEPORT = 9889;	// Does not seem to be used
 	public static String serverIP = "192.168.1.143";
 	public static boolean online = true;
+	public static boolean isServer = false;
 	
 	public static byte nullChar = 'a';		// For no key pressed this time
 	public static byte nextKey = nullChar;	// No key pressed yet
