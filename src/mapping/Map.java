@@ -32,6 +32,9 @@ abstract public class Map {
 	static int timer = 0;
 	public static int BOMBTIMER = 0;
 	public static int BOMB2TIMER = 0;
+	public static int EXPTIMER = 0;
+	public final static int BOMBTIME = 250;
+	public final static int EXPTIME = 350;
 
 	public static int[][] board = new int[HEIGHT][WIDTH]; 
 
@@ -132,8 +135,15 @@ abstract public class Map {
 			BOMB2TIMER = 0;
 			bomb(2);
 		}
+		
+		if(EXPTIMER != 0 && timer == EXPTIMER){
+			EXPTIMER = 0;
+			explosion();
+		}
+
 
 	}
+
 	public static void bomb(int t){
 		int bombposx;
 		int bombposy;
@@ -146,12 +156,13 @@ abstract public class Map {
 			bombposy = BOMBPOSY;
 		}
 
+		System.out.println("BOOOM");
 
 		for(int i = bombposx; i >= bombposx-BOMBRADIUS; i--){		 
 			if(i<=1 || Map.board[bombposy][i] == Map.UNBREAKABLE){
 				break;
 			}else if(Map.board[bombposy][i] == Map.PLAYER2){
-				drawing.Popup.popupMessage("Player 1 won!");
+				drawing.Popup.popupMessage("Player 1 won!");			//TODO: Close connection here. 
 			}else if(Map.board[bombposy][i] == Map.PLAYER1){
 				drawing.Popup.popupMessage("Player 2 won!");
 			}else if(Map.board[bombposy][i] == Map.STONE){
@@ -161,7 +172,7 @@ abstract public class Map {
 				Map.board[bombposy][i] = Map.EXPLOSION;
 			}
 		}
-		
+
 		for(int i = bombposx; i <= bombposx+BOMBRADIUS; i++){		 
 			if(i>=WIDTH-1 || Map.board[bombposy][i] == Map.UNBREAKABLE){
 				break;
@@ -176,7 +187,7 @@ abstract public class Map {
 				Map.board[bombposy][i] = Map.EXPLOSION;
 			}
 		}
-		
+
 		for(int i = bombposy; i >= bombposy-BOMBRADIUS; i--){		 
 			if(i<=1 || Map.board[i][bombposx] == Map.UNBREAKABLE){
 				break;
@@ -191,7 +202,7 @@ abstract public class Map {
 				Map.board[i][bombposx] = Map.EXPLOSION;
 			}
 		}
-		
+
 		for(int i = bombposy; i <= bombposy+BOMBRADIUS; i++){		 
 			if(i>=HEIGHT-1 || Map.board[i][bombposx] == Map.UNBREAKABLE){
 				break;
@@ -206,13 +217,21 @@ abstract public class Map {
 				Map.board[i][bombposx] = Map.EXPLOSION;
 			}
 		}
+		if(t==2){
+			bomb2OnBoard = false;
+		}else{ //invariant t = 1.
+			bombOnBoard = false;
+		}
 		
-		
-		//Some kind of delay before the exploding graphics disappear. Then bombOnBoard = false, 
-		//so it's possible to drop a new bomb.   	
-		
-		bombOnBoard = false;
-		bomb2OnBoard = false;
+	}
+	
+	public static void explosion(){
+		for(int i=0; i <HEIGHT; i++){
+			for(int j=0; j < WIDTH; j++){
+				if(board[i][j] == EXPLOSION){
+					board[i][j] = FREE;}
+			}
+		}
 	}
 
 

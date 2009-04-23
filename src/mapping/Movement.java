@@ -55,7 +55,8 @@ public class Movement {
 			Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.BOMB1;
 			Map.BOMBPOSY = Map.PLAYERPOSY;
 			Map.BOMBPOSX = Map.PLAYERPOSX;
-			Map.BOMBTIMER = Map.timer + 400;
+			Map.BOMBTIMER = Map.timer + Map.BOMBTIME;
+			Map.EXPTIMER = Map.timer + Map.EXPTIME;
 			mapping.Map.drawBoard();
 			Map.bombOnBoard = true;
 		}else{}
@@ -114,7 +115,8 @@ public class Movement {
 			Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.BOMB2;
 			Map.BOMB2POSY = Map.PLAYER2POSY;
 			Map.BOMB2POSX = Map.PLAYER2POSX;
-			Map.BOMB2TIMER = Map.timer + 400;
+			Map.BOMB2TIMER = Map.timer + Map.BOMBTIME;
+			Map.EXPTIMER = Map.timer + Map.EXPTIME;
 			Map.bomb2OnBoard = true;
 		}else{}
 	}
