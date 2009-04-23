@@ -18,9 +18,9 @@ public class Client {
 	static public void startClient() {
 		Socket client;
 		try {
-			System.out.println("Trying to start client");
+			//System.out.println("Trying to start client");
 			client = new Socket(Network.serverIP, Network.GAMEPORT);
-			System.out.println("Connected to server");
+			//System.out.println("Connected to server");
 			Network.handleTraffic(client); 
 	    } catch (ConnectException e) {
 				System.err.println(e);

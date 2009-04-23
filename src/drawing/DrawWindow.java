@@ -107,7 +107,7 @@ public class DrawWindow extends JFrame {
 					g2d.drawImage(crate, i*32, j*32, 32, 32,this);
 				}
 			}
-			System.out.println();
+			//System.out.println();
 		}
 		//g2d.drawImage(crate, 0, 0, 32, 32,this);
         

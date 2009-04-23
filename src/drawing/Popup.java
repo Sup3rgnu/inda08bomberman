@@ -62,7 +62,7 @@ abstract public class Popup {
 	
 	static public void requestIp(){
 		String newIP = popupInput("Enter server IP (Ex: 192.168.0.2) or leave empty for server");
-		System.out.println(newIP);
+		//System.out.println(newIP);
 		if (newIP == null) {
 			networking.Network.isServer = true;
 		} else {

@@ -19,20 +19,19 @@ abstract public class Server {
 	
 	public static void startServer() {
 		try {
-			System.out.println("Trying to start server");
+			//System.out.println("Trying to start server");
 			ServerSocket serverSocket = new ServerSocket(Network.GAMEPORT);
 			
-			System.out.println("Server started. Opponents may now join");
-			// TODO: refresh window
+			//System.out.println("Server started. Opponents may now join");
 			Socket server = serverSocket.accept();
-			System.out.println("Connection accepted");
+			//System.out.println("Connection accepted");
 			
 			/* Create a token */
 			PrintStream networkOutput = new PrintStream(server.getOutputStream());
 			networkOutput.print(Network.nullChar);
     		networkOutput.flush();			// Send one-char packets for speed
     		networkOutput = null;			// Remove
-    		System.out.println("Sent a token");
+    		//System.out.println("Sent a token");
 			
 			Network.handleTraffic(server);
 		} catch (SocketException e) {

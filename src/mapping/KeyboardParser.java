@@ -6,7 +6,7 @@ package mapping;
  *
  */
 public class KeyboardParser {
-	private boolean debugging = true;
+	private boolean debugging = false;
 
 	public KeyboardParser() {}
 	

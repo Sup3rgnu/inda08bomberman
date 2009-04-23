@@ -39,7 +39,7 @@ abstract public class Network {
 	 */
 	static void handleTraffic(Socket socket) {
 		try {
-			System.out.println("Handling traffic");
+			//drawing.Popup.popupMessage("Fully connected");
 			
 			// Network in/out
 			DataInputStream networkInput = new DataInputStream(socket.getInputStream());
@@ -73,7 +73,7 @@ abstract public class Network {
     			/* Now it is time to send */
     			//nextKey = (char) userInput.read();
     			if (nextKey != nullChar) {
-    				System.out.println("Local user pressed byte: " + (byte) nextKey + " char: " + (char) nextKey);
+    				//System.out.println("Local user pressed byte: " + (byte) nextKey + " char: " + (char) nextKey);
     			}
 	    		networkOutput.write(nextKey);
 	    		networkOutput.flush();			// Send one-char packets for speed
