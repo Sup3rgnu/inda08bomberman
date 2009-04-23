@@ -71,11 +71,13 @@ abstract public class Popup {
 		}
 	}
 	
-	static public void popupYouWon() {
+	static public void youWon() {
 		drawing.Popup.popupMessage("You won");
+		java.lang.System.exit(0);
 	}
 	
-	static public void popupYouLost() {
+	static public void youLost() {
 		drawing.Popup.popupMessage("You lost");
+		java.lang.System.exit(0);
 	}
 }

@@ -162,9 +162,9 @@ abstract public class Map {
 			if(i<=1 || Map.board[bombposy][i] == Map.UNBREAKABLE){
 				break;
 			}else if(Map.board[bombposy][i] == Map.PLAYER2){
-				drawing.Popup.popupYouWon();
+				drawing.Popup.youWon();
 			}else if(Map.board[bombposy][i] == Map.PLAYER1){
-				drawing.Popup.popupYouLost();
+				drawing.Popup.youLost();
 			}else if(Map.board[bombposy][i] == Map.STONE){
 				Map.board[bombposy][i] = Map.EXPLOSION;
 				break;
@@ -177,9 +177,9 @@ abstract public class Map {
 			if(i>=WIDTH-1 || Map.board[bombposy][i] == Map.UNBREAKABLE){
 				break;
 			}else if(Map.board[bombposy][i] == Map.PLAYER2){
-				drawing.Popup.popupYouWon();
+				drawing.Popup.youWon();
 			}else if(Map.board[bombposy][i] == Map.PLAYER1){
-				drawing.Popup.popupYouLost();
+				drawing.Popup.youLost();
 			}else if(Map.board[bombposy][i] == Map.STONE){
 				Map.board[bombposy][i] = Map.EXPLOSION;
 				break;
@@ -192,9 +192,9 @@ abstract public class Map {
 			if(i<=1 || Map.board[i][bombposx] == Map.UNBREAKABLE){
 				break;
 			}else if(Map.board[i][bombposx] == Map.PLAYER2){
-				drawing.Popup.popupYouWon();
+				drawing.Popup.youWon();
 			}else if(Map.board[i][bombposx] == Map.PLAYER1){
-				drawing.Popup.popupYouLost();
+				drawing.Popup.youLost();
 			}else if(Map.board[i][bombposx] == Map.STONE){
 				Map.board[i][bombposx] = Map.EXPLOSION;
 				break;
@@ -207,9 +207,9 @@ abstract public class Map {
 			if(i>=HEIGHT-1 || Map.board[i][bombposx] == Map.UNBREAKABLE){
 				break;
 			}else if(Map.board[i][bombposx] == Map.PLAYER2){
-				drawing.Popup.popupYouWon();
+				drawing.Popup.youWon();
 			}else if(Map.board[i][bombposx] == Map.PLAYER1){
-				drawing.Popup.popupYouLost();
+				drawing.Popup.youLost();
 			}else if(Map.board[i][bombposx] == Map.STONE){
 				Map.board[i][bombposx] = Map.EXPLOSION;
 				break;
