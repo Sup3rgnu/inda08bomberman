@@ -111,6 +111,12 @@ abstract public class Map {
 		for  (int i=7; i <=7; i++)
 			for (int j = 7; j <= 11; j++)
 				board[i][j] = UNBREAKABLE;
+		
+		
+		/* Caj  -  crates */
+		
+		board[10][2] = STONE;
+		board[HEIGHT - 5][WIDTH - 2] = STONE;
 
 	}
 
