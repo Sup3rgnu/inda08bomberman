@@ -62,8 +62,10 @@ abstract public class Popup {
 
 	
 	static public void requestIp(){
-		
-		networking.Network.serverIP = popupInput("Enter your friend's IP (Ex: 192.168.0.2)");
+		String newIP = popupInput("Enter your friend's IP (Ex: 192.168.0.2)");
+		if (newIP != "") {
+			networking.Network.serverIP = newIP;
+		}
 		
 		//Should be called from network after the server is up and running
 	}

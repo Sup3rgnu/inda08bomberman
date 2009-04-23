@@ -74,19 +74,19 @@ abstract public class Network {
 	    		networkOutput.flush();			// Send one-char packets for speed
 	    		nextKey = nullChar;
 	    		//System.out.println("Sent a package");
-	    		if (nextKey == mapping.KeyboardParser.VK_Q ||
-	    				incomingChar == mapping.KeyboardParser.VK_Q) {	
-	    			System.out.println("Found key Q pressed");
-	    			/* Disconnect */
-	    			drawing.Popup.popupMessage("Disconnected");
-	    			online = false;
-	    			break;				// Not necessary with the online boolean
-	    		} else {
+	    		//if (nextKey == mapping.KeyboardParser.VK_Q ||
+	    		//		incomingChar == mapping.KeyboardParser.VK_Q) {	
+	    		//	System.out.println("Found key Q pressed");
+	    		//	/* Disconnect */
+	    		//	drawing.Popup.popupMessage("Disconnected");
+	    		//	online = false;
+	    		//	break;				// Not necessary with the online boolean
+	    		//} else {
 	    			// Continue loop
 	    			mapping.Map.bombTick();
-	    			/* Draw the main window */
+	    			/* Update the main window */
 	    			drawing.DrawWindow.dw.update(drawing.DrawWindow.dw.getGraphics());
-	    		}
+	    		//}
 	    	}
 	        
 	        /* Close connection */
