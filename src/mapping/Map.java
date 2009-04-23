@@ -3,7 +3,7 @@ package mapping;
 abstract public class Map {
 
 	public final static int FREE = 0;  // Empty square
-	public final static int STONE = 1;  // Square with a stone in it
+	public final static int CRATE = 1;  // Square with a CRATE in it
 	public final static int UNBREAKABLE = 2; // Unbreakable path, a player can't stand here
 
 	public final static int PLAYER1 = 3;   // Square where player 1 is
@@ -15,7 +15,7 @@ abstract public class Map {
 	public final static int HEIGHT = 16; // Height of the board
 	public final static int WIDTH = 16; // Width of the board
 
-	public static int PLAYERPOSY = 1; // Start pos on the board, not a conflict with STONE = 1 
+	public static int PLAYERPOSY = 1; // Start pos on the board, not a conflict with CRATE = 1 
 	public static int PLAYERPOSX = 1;
 	public static int PLAYER2POSY = HEIGHT-2;
 	public static int PLAYER2POSX = WIDTH-2;
@@ -33,8 +33,8 @@ abstract public class Map {
 	public static int BOMBTIMER = 0;
 	public static int BOMB2TIMER = 0;
 	public static int EXPTIMER = 0;
-	public final static int BOMBTIME = 250;
-	public final static int EXPTIME = 350;
+	public final static int BOMBTIME = 50;
+	public final static int EXPTIME = 150;
 
 	public static int[][] board = new int[HEIGHT][WIDTH]; 
 
@@ -112,11 +112,33 @@ abstract public class Map {
 			for (int j = 7; j <= 11; j++)
 				board[i][j] = UNBREAKABLE;
 		
+		/* Crates */
 		
-		/* Caj  -  crates */
+		board[1][7] = CRATE;
+		board[1][8] = CRATE;
+		board[1][14] = CRATE;
 		
-		board[10][2] = STONE;
-		board[HEIGHT - 5][WIDTH - 2] = STONE;
+		board[3][3] = CRATE;
+		board[7][3] = CRATE;
+		
+		board[7][1] = CRATE;
+		board[6][1] = CRATE;
+		board[10][2] = CRATE;
+		board[14][2] = CRATE;
+		board[14][3] = CRATE;
+		board[13][7] = CRATE;
+		board[13][8] = CRATE;
+		board[13][10] = CRATE;
+		
+		board[7][4] = CRATE;
+		board[7][6] = CRATE;
+		board[5][10] = CRATE;
+		board[5][8] = CRATE;
+		
+		board[7][12] = CRATE;
+		board[7][14] = CRATE;
+		board[11][14] = CRATE;
+		board[10][14] = CRATE;
 
 	}
 
@@ -171,7 +193,7 @@ abstract public class Map {
 				drawing.Popup.youWon();
 			}else if(Map.board[bombposy][i] == Map.PLAYER1){
 				drawing.Popup.youLost();
-			}else if(Map.board[bombposy][i] == Map.STONE){
+			}else if(Map.board[bombposy][i] == Map.CRATE){
 				Map.board[bombposy][i] = Map.EXPLOSION;
 				break;
 			}else{
@@ -186,7 +208,7 @@ abstract public class Map {
 				drawing.Popup.youWon();
 			}else if(Map.board[bombposy][i] == Map.PLAYER1){
 				drawing.Popup.youLost();
-			}else if(Map.board[bombposy][i] == Map.STONE){
+			}else if(Map.board[bombposy][i] == Map.CRATE){
 				Map.board[bombposy][i] = Map.EXPLOSION;
 				break;
 			}else{
@@ -201,7 +223,7 @@ abstract public class Map {
 				drawing.Popup.youWon();
 			}else if(Map.board[i][bombposx] == Map.PLAYER1){
 				drawing.Popup.youLost();
-			}else if(Map.board[i][bombposx] == Map.STONE){
+			}else if(Map.board[i][bombposx] == Map.CRATE){
 				Map.board[i][bombposx] = Map.EXPLOSION;
 				break;
 			}else{
@@ -216,7 +238,7 @@ abstract public class Map {
 				drawing.Popup.youWon();
 			}else if(Map.board[i][bombposx] == Map.PLAYER1){
 				drawing.Popup.youLost();
-			}else if(Map.board[i][bombposx] == Map.STONE){
+			}else if(Map.board[i][bombposx] == Map.CRATE){
 				Map.board[i][bombposx] = Map.EXPLOSION;
 				break;
 			}else{

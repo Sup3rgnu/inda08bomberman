@@ -4,7 +4,7 @@ public class Movement {
 
 	static public void goLeft(){
 		if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX-1] == Map.FREE){
-			if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] == Map.BOMB1){			//Might have to check for more stuff, bomb2, player2 etc.
+			if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] == Map.BOMB1){		
 				Map.board[Map.PLAYERPOSY][--Map.PLAYERPOSX] = Map.PLAYER1;
 				mapping.Map.drawBoard();	
 			}else{
