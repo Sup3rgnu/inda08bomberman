@@ -16,7 +16,7 @@ public class Main {
 		
 		// Just a test, not supposed to be called from here. Check out the Popup class!
 		
-		drawing.Popup.createPlayers(1); 
+		//drawing.Popup.createPlayers(1); 
 		drawing.Popup.requestIp(); 
 		mapping.Map.startMap();
 		DrawWindow.DrawWindowmain();
