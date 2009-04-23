@@ -61,8 +61,8 @@ public class DrawWindow extends JFrame {
     GraphicsConfiguration gc = gd.getDefaultConfiguration();
     BufferedImage bi = gc.createCompatibleImage( WIDTH, HEIGHT );
     
-    Graphics graphics = null;
-    Graphics2D g2d = null;
+    Graphics graphics = getGraphics();
+    Graphics2D g2d = (Graphics2D) getGraphics();
     Color background = Color.PINK;
     
     
@@ -114,7 +114,7 @@ public class DrawWindow extends JFrame {
      
         // Blit image and flip...
         graphics = buffer.getDrawGraphics();
-        graphics.drawImage( bi, 0, 0, null );
+        graphics.drawImage(bi, 0, 0, this);
         if( !buffer.contentsLost() )
           buffer.show();
           

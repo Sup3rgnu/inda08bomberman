@@ -86,7 +86,7 @@ abstract public class Network {
 	    			// Continue loop
 	    			mapping.Map.bombTick();
 	    			/* Update the main window */
-	    			drawing.DrawWindow.dw.update(drawing.DrawWindow.dw.getGraphics());
+	    			drawing.DrawWindow.dw.run();
 	    		//}
 	    	}
 	        
