@@ -59,7 +59,6 @@ abstract public class Popup {
 		player.setName(n);				
 		players.add(player);
 	}
-
 	
 	static public void requestIp(){
 		String newIP = popupInput("Enter server IP (Ex: 192.168.0.2) or leave empty for server");
@@ -70,14 +69,13 @@ abstract public class Popup {
 			networking.Network.isServer = false;
 			networking.Network.serverIP = newIP;
 		}
-		
-		//Should be called from network after the server is up and running
 	}
-
-	//TODO: String popup for insertion of PlayerName
-
-	//TODO: IP popup for insertion of IP addresses (unless String popup handles IPs) 
-		//It can if it's ok for the network to handle the ip as a string? Otherwise cast it somehow to int?
-
-	//TODO: Choose Server/Client popup
+	
+	static public void popupYouWon() {
+		drawing.Popup.popupMessage("You won");
+	}
+	
+	static public void popupYouLost() {
+		drawing.Popup.popupMessage("You lost");
+	}
 }
