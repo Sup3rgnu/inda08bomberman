@@ -93,18 +93,18 @@ public class DrawWindow extends JFrame {
         		
         
 	        	
-		for(int i=0; i <mapping.Map.HEIGHT; i++){
-			for(int j=0; j < mapping.Map.WIDTH; j++){
-				if(mapping.Map.board[i][j] == mapping.Map.UNBREAKABLE){
-					g2d.drawImage(crate, i*32, j*32, 32, 32,this);
+		for(int j=0; j <mapping.Map.HEIGHT; j++){
+			for(int i=0; i < mapping.Map.WIDTH; i++){
+				if(mapping.Map.board[j][i] == mapping.Map.UNBREAKABLE){
+					g2d.drawImage(stone, i*32, j*32, 32, 32,this);
 				}
-				else if(mapping.Map.board[i][j] == mapping.Map.FREE){
+				else if(mapping.Map.board[j][i] == mapping.Map.FREE){
 					g2d.drawImage(grass, i*32, j*32, 32, 32,this);
 				}
-				else if(mapping.Map.board[i][j] == mapping.Map.PLAYER1){
+				else if(mapping.Map.board[j][i] == mapping.Map.PLAYER1){
 					g2d.drawImage(player1, i*32, j*32, 32, 32,this);
 				}
-				else if(mapping.Map.board[i][j] == mapping.Map.PLAYER2){
+				else if(mapping.Map.board[j][i] == mapping.Map.PLAYER2){
 					g2d.drawImage(player2, i*32, j*32, 32, 32,this);
 				}
 				
