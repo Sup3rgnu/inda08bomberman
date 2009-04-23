@@ -66,6 +66,10 @@ abstract public class Network {
     			// We got the token!
     			// TCP makes sure that the token is not lost
     			
+    			mapping.Map.bombTick();
+    			/* Update the main window */
+    			drawing.DrawWindow.dw.run();
+    			
     			/* Now it is time to send */
     			//nextKey = (char) userInput.read();
     			if (nextKey != nullChar) {
@@ -84,9 +88,7 @@ abstract public class Network {
 	    		//	break;				// Not necessary with the online boolean
 	    		//} else {
 	    			// Continue loop
-	    			mapping.Map.bombTick();
-	    			/* Update the main window */
-	    			drawing.DrawWindow.dw.run();
+	    			
 	    		//}
 	    	}
 	        
