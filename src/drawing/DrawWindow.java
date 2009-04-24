@@ -90,7 +90,10 @@ public class DrawWindow extends JFrame {
         Image grass = ImageIO.read(new File("graphics/grass.gif"));
         Image player1 = ImageIO.read(new File("graphics/player1.gif"));
         Image player2 = ImageIO.read(new File("graphics/player2.gif"));
-
+        Image bomb1 = ImageIO.read(new File("graphics/bomb1.gif"));
+        Image bomb2 = ImageIO.read(new File("graphics/bomb2.gif"));
+        Image explosion = ImageIO.read(new File("graphics/explosion.gif"));
+        
 
 	        	
 		for(int j=0; j <mapping.Map.HEIGHT; j++){
@@ -105,6 +108,12 @@ public class DrawWindow extends JFrame {
 					g2d.drawImage(player2, i*32, j*32, 32, 32,this);
 				} else if(mapping.Map.board[j][i] == mapping.Map.CRATE){
 					g2d.drawImage(crate, i*32, j*32, 32, 32,this);
+				} else if(mapping.Map.board[j][i] == mapping.Map.BOMB1){
+					g2d.drawImage(bomb1, i*32, j*32, 32, 32,this);
+				} else if(mapping.Map.board[j][i] == mapping.Map.BOMB2){
+					g2d.drawImage(bomb2, i*32, j*32, 32, 32,this);
+				} else if(mapping.Map.board[j][i] == mapping.Map.EXPLOSION){
+					g2d.drawImage(explosion, i*32, j*32, 32, 32,this);
 				}
 			}
 			//System.out.println();
