@@ -25,7 +25,7 @@ abstract public class Map {
 	public static int BOMB2POSY = 0;
 	public static int BOMB2POSX = 0;
 
-	final public static int BOMBRADIUS = 2;   
+	final public static int BOMBRADIUS = 3;   
 	public static boolean bombOnBoard = false;
 	public static boolean bomb2OnBoard = false;
 
