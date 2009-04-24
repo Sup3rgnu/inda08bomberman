@@ -25,7 +25,6 @@ public class Main {
 		if (networking.Network.isServer) {
 			mapping.Map.board[1][1] = mapping.Map.PLAYER1;
 			mapping.Map.board[mapping.Map.HEIGHT-2][mapping.Map.WIDTH-2] = mapping.Map.PLAYER2;
-			mapping.Map.drawBoard();
 			networking.Server.startServer();
 		} else {
 			mapping.Map.board[1][1] = mapping.Map.PLAYER2;
@@ -34,7 +33,6 @@ public class Main {
 			mapping.Map.PLAYERPOSX = mapping.Map.WIDTH-2;
 			mapping.Map.PLAYER2POSY = 1;
 			mapping.Map.PLAYER2POSX = 1;
-			mapping.Map.drawBoard();
 			networking.Client.startClient();
 		}
 	}
