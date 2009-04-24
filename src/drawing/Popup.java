@@ -73,11 +73,33 @@ abstract public class Popup {
 	
 	static public void youWon() {
 		drawing.Popup.popupMessage("You won");
+		
+		// Not needed
+		//networking.Network.nextKey = networking.Network.lostKey;
+		
+		/* Wait for message to reach opponent */
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			//e.printStackTrace();
+		}
+		
 		java.lang.System.exit(0);
 	}
 	
 	static public void youLost() {
 		drawing.Popup.popupMessage("You lost");
+		
+		// Not needed
+		//networking.Network.nextKey = networking.Network.wonKey;
+		
+		/* Wait for message to reach opponent */
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			//e.printStackTrace();
+		}
+		
 		java.lang.System.exit(0);
 	}
 }

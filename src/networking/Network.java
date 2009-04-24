@@ -29,6 +29,10 @@ abstract public class Network {
 	public static byte nullChar = 'a';		// For no key pressed this time
 	public static byte nextKey = nullChar;	// No key pressed yet
 	
+	// Not needed
+	//public static byte lostKey = 'b';
+	//public static byte wonKey = 'c';
+	
 	Network() {}
 	
 	/**
