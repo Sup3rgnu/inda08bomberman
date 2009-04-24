@@ -131,10 +131,15 @@ public class DrawWindow extends JFrame {
       	}
     }
 		
-	public static void DrawWindowmain() throws IOException {
+	public static void DrawWindowmain() {
 	
 	dw.setTitle( "Bomberman" );
 	dw.setVisible( true );
-	dw.run();
-  	}
+	try {
+		dw.run();
+	} catch (IOException e) {
+		e.printStackTrace();
+		drawing.Popup.popupMessage("Files not found. Have you downloaded the graphics?");
+	}
+	}
 }
