@@ -72,13 +72,17 @@ abstract public class Network {
     			
     			/* Now it is time to send */
     			//nextKey = (char) userInput.read();
-    			if (nextKey != nullChar) {
+    			//if (nextKey != nullChar) {
     				//System.out.println("Local user pressed byte: " + (byte) nextKey + " char: " + (char) nextKey);
-    			}
-	    		networkOutput.write(nextKey);
+    			//}
+    			
+    			/* Send our key */
+    			byte sendKey = nextKey; //prevent changes while sending
+	    		networkOutput.write(sendKey);
 	    		networkOutput.flush();			// Send one-char packets for speed
-	    		parser.localParse(nextKey);
+	    		parser.localParse(sendKey);
 	    		nextKey = nullChar;
+	    		
 	    		//System.out.println("Sent a package");
 	    		//if (nextKey == mapping.KeyboardParser.VK_Q ||
 	    		//		incomingChar == mapping.KeyboardParser.VK_Q) {	
