@@ -33,8 +33,8 @@ abstract public class Map {
 	public static int BOMBTIMER = 0;
 	public static int BOMB2TIMER = 0;
 	public static int EXPTIMER = 0;
-	public final static int BOMBTIME = 50;
-	public final static int EXPTIME = 150;
+	public final static int BOMBTIME = 30;
+	public final static int EXPTIME = 40;
 
 	public static int[][] board = new int[HEIGHT][WIDTH]; 
 
@@ -142,15 +142,6 @@ abstract public class Map {
 
 	}
 
-	public static void drawBoard(){
-
-		for(int i=0; i <HEIGHT; i++){
-			for(int j=0; j < WIDTH; j++){
-				System.out.print(board[i][j]);	             
-			}
-			System.out.println();
-		}
-	}
 	public static void bombTick(){
 		timer++;
 
@@ -184,7 +175,6 @@ abstract public class Map {
 			bombposy = BOMBPOSY;
 		}
 
-		System.out.println("BOOOM");
 
 		for(int i = bombposx; i >= bombposx-BOMBRADIUS; i--){		 
 			if(i<=1 || Map.board[bombposy][i] == Map.UNBREAKABLE){
