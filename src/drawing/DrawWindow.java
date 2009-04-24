@@ -102,7 +102,7 @@ public class DrawWindow extends JFrame {
 				} else if(mapping.Map.board[j][i] == mapping.Map.BOMB1){
 					g2d.drawImage(bomb1, i*32, j*32, 32, 32,this);
 				} else if(mapping.Map.board[j][i] == mapping.Map.BOMB2){
-					g2d.drawImage(bomb1, i*32, j*32, 32, 32,this);
+					g2d.drawImage(bomb2, i*32, j*32, 32, 32,this);
 				} else if(mapping.Map.board[j][i] == mapping.Map.EXPLOSION){
 					g2d.drawImage(explosion, i*32, j*32, 32, 32,this);
 				}
