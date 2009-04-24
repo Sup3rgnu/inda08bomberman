@@ -77,6 +77,7 @@ abstract public class Network {
     			}
 	    		networkOutput.write(nextKey);
 	    		networkOutput.flush();			// Send one-char packets for speed
+	    		parser.localParse(nextKey);
 	    		nextKey = nullChar;
 	    		//System.out.println("Sent a package");
 	    		//if (nextKey == mapping.KeyboardParser.VK_Q ||
