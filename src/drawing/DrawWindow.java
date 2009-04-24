@@ -23,12 +23,8 @@ public class DrawWindow extends JFrame {
 	
 	static final int WIDTH = 16*32;
 	static final int HEIGHT = 16*32;
-	class Bob { int x, y, w, h, dx, dy; }
+	
 	Canvas canvas; // Our drawing component
-	Vector< Point > circles = new Vector< Point >(); // Circles
-	Bob bob = new Bob(); // Our rectangle
-	Random rand = new Random(); // Used for random circle locations
-
 	
 
 	public DrawWindow() {
@@ -44,12 +40,7 @@ public class DrawWindow extends JFrame {
     canvas.setSize( WIDTH, HEIGHT );
     add( canvas );
     pack();
-    
-    
-    bob.x = bob.y = 250;
-    bob.dx = bob.dy = 25;
-    bob.w = bob.h = 25;
-    
+       
     }
 	
 	public void run() throws IOException {
@@ -111,7 +102,7 @@ public class DrawWindow extends JFrame {
 				} else if(mapping.Map.board[j][i] == mapping.Map.BOMB1){
 					g2d.drawImage(bomb1, i*32, j*32, 32, 32,this);
 				} else if(mapping.Map.board[j][i] == mapping.Map.BOMB2){
-					g2d.drawImage(bomb2, i*32, j*32, 32, 32,this);
+					g2d.drawImage(bomb1, i*32, j*32, 32, 32,this);
 				} else if(mapping.Map.board[j][i] == mapping.Map.EXPLOSION){
 					g2d.drawImage(explosion, i*32, j*32, 32, 32,this);
 				}
