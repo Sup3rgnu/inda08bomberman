@@ -5,8 +5,6 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Random;
-import java.util.Vector;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -83,7 +81,7 @@ public class DrawWindow extends JFrame {
         Image player2 = ImageIO.read(new File("graphics/player2.gif"));
         Image bomb1 = ImageIO.read(new File("graphics/bomb1.gif"));
         Image bomb2 = ImageIO.read(new File("graphics/bomb2.gif"));
-        Image explosion = ImageIO.read(new File("graphics/explosion.gif"));
+        Image explosion = ImageIO.read(new File("graphics/explosion.bmp"));
         
 
 	        	
