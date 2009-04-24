@@ -5,24 +5,21 @@ public class Movement {
 	static public void goLeft(){
 		if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX-1] == Map.FREE){
 			if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] == Map.BOMB1){		
-				Map.board[Map.PLAYERPOSY][--Map.PLAYERPOSX] = Map.PLAYER1;
-				mapping.Map.drawBoard();	
+				Map.board[Map.PLAYERPOSY][--Map.PLAYERPOSX] = Map.PLAYER1;	
 			}else{
 				Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.FREE;
-				Map.board[Map.PLAYERPOSY][--Map.PLAYERPOSX] = Map.PLAYER1;
-				mapping.Map.drawBoard();}
-		}else{}
-	}
+				Map.board[Map.PLAYERPOSY][--Map.PLAYERPOSX] = Map.PLAYER1;}
+		}else{
+			}
+		}
 
 	static public void goUp(){
 		if(Map.board[Map.PLAYERPOSY-1][Map.PLAYERPOSX] == Map.FREE){
 			if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] == Map.BOMB1){
 				Map.board[--Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.PLAYER1;
-				mapping.Map.drawBoard();
 			}else{
 				Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.FREE;
-				Map.board[--Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.PLAYER1;
-				mapping.Map.drawBoard();}
+				Map.board[--Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.PLAYER1;}
 		}else{}
 	}
 
@@ -30,11 +27,11 @@ public class Movement {
 		if(Map.board[Map.PLAYERPOSY+1][Map.PLAYERPOSX] == Map.FREE){
 			if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] == Map.BOMB1){
 				Map.board[++Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.PLAYER1;
-				mapping.Map.drawBoard();
+				
 			}else{
 				Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.FREE;
 				Map.board[++Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.PLAYER1;
-				mapping.Map.drawBoard();}
+				}
 		}else{}
 	}
 
@@ -42,11 +39,9 @@ public class Movement {
 		if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX+1] == Map.FREE){
 			if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] == Map.BOMB1){
 				Map.board[Map.PLAYERPOSY][++Map.PLAYERPOSX] = Map.PLAYER1; 
-				mapping.Map.drawBoard();
 			}else{
 				Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.FREE;
-				Map.board[Map.PLAYERPOSY][++Map.PLAYERPOSX] = Map.PLAYER1; 
-				mapping.Map.drawBoard();}
+				Map.board[Map.PLAYERPOSY][++Map.PLAYERPOSX] = Map.PLAYER1;}
 		}else{}
 	}
 
@@ -57,7 +52,6 @@ public class Movement {
 			Map.BOMBPOSX = Map.PLAYERPOSX;
 			Map.BOMBTIMER = Map.timer + Map.BOMBTIME;
 			Map.EXPTIMER = Map.timer + Map.EXPTIME;
-			mapping.Map.drawBoard();
 			Map.bombOnBoard = true;
 		}else{}
 	}
@@ -66,11 +60,9 @@ public class Movement {
 		if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX-1] == Map.FREE){
 			if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] == Map.BOMB2){
 				Map.board[Map.PLAYER2POSY][--Map.PLAYER2POSX] = Map.PLAYER2;
-				mapping.Map.drawBoard();
 			}else{
 				Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.FREE;
-				Map.board[Map.PLAYER2POSY][--Map.PLAYER2POSX] = Map.PLAYER2;
-				mapping.Map.drawBoard();}
+				Map.board[Map.PLAYER2POSY][--Map.PLAYER2POSX] = Map.PLAYER2;}
 		}else{}
 	}
 
@@ -78,11 +70,9 @@ public class Movement {
 		if(Map.board[Map.PLAYER2POSY-1][Map.PLAYER2POSX] == Map.FREE){
 			if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] == Map.BOMB2){
 				Map.board[--Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.PLAYER2;
-				mapping.Map.drawBoard();
 			}else{
 				Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.FREE;
-				Map.board[--Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.PLAYER2;
-				mapping.Map.drawBoard();}
+				Map.board[--Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.PLAYER2;}
 		}else{}
 	}
 
@@ -90,11 +80,9 @@ public class Movement {
 		if(Map.board[Map.PLAYER2POSY+1][Map.PLAYER2POSX] == Map.FREE){
 			if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] == Map.BOMB2){
 				Map.board[++Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.PLAYER2;
-				mapping.Map.drawBoard();
 			}else{
 				Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.FREE;
-				Map.board[++Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.PLAYER2;
-				mapping.Map.drawBoard();}
+				Map.board[++Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.PLAYER2;}
 		}else{}
 	}
 
@@ -102,11 +90,9 @@ public class Movement {
 		if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX+1] == Map.FREE){
 			if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] == Map.BOMB2){
 				Map.board[Map.PLAYER2POSY][++Map.PLAYER2POSX] = Map.PLAYER2;
-				mapping.Map.drawBoard();
 			}else{	
 				Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.FREE;
-				Map.board[Map.PLAYER2POSY][++Map.PLAYER2POSX] = Map.PLAYER2;
-				mapping.Map.drawBoard();}
+				Map.board[Map.PLAYER2POSY][++Map.PLAYER2POSX] = Map.PLAYER2;}
 		}else{}
 	} 
 
