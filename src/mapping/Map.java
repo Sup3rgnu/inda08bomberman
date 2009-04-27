@@ -11,6 +11,8 @@ abstract public class Map {
 	public final static int BOMB1 = 8; // Square with player1 has placed a bomb
 	public final static int BOMB2 = 9; // Square with player2 has placed a bomb
 	public final static int EXPLOSION = 5;
+	public final static int PLAYERANDBOMB = 6;
+	public final static int PLAYERANDBOMB2 = 7;
 
 	public final static int HEIGHT = 16; // Height of the board
 	public final static int WIDTH = 16; // Width of the board
@@ -175,6 +177,11 @@ abstract public class Map {
 			bombposy = BOMBPOSY;
 		}
 
+		if(board[bombposy][bombposx] == PLAYERANDBOMB){
+			drawing.Popup.youLost();
+		}else if(board[bombposy][bombposx] == PLAYERANDBOMB2){
+			drawing.Popup.youWon();
+		}
 
 		for(int i = bombposx; i >= bombposx-BOMBRADIUS; i--){		 
 			if(i<=1 || Map.board[bombposy][i] == Map.UNBREAKABLE){
