@@ -5,8 +5,8 @@ public class Movement {
 	static public void goLeft(){
 		if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX-1] == Map.FREE){
 			if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] == Map.PLAYERANDBOMB){		
-				Map.board[Map.PLAYERPOSY][--Map.PLAYERPOSX] = Map.PLAYER1;	
 				Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.BOMB1;
+				Map.board[Map.PLAYERPOSY][--Map.PLAYERPOSX] = Map.PLAYER1;	
 			}else if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX-1] == Map.EXPLOSION){
 				drawing.Popup.youLost();
 			}else{
@@ -19,8 +19,8 @@ public class Movement {
 	static public void goUp(){
 		if(Map.board[Map.PLAYERPOSY-1][Map.PLAYERPOSX] == Map.FREE){
 			if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] == Map.PLAYERANDBOMB){
-				Map.board[--Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.PLAYER1;
 				Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.BOMB1;
+				Map.board[--Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.PLAYER1;
 			}else if(Map.board[Map.PLAYERPOSY-1][Map.PLAYERPOSX] == Map.EXPLOSION){
 				drawing.Popup.youLost();
 			}else{
@@ -32,8 +32,8 @@ public class Movement {
 	static public void goDown(){
 		if(Map.board[Map.PLAYERPOSY+1][Map.PLAYERPOSX] == Map.FREE){
 			if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] == Map.PLAYERANDBOMB){
-				Map.board[++Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.PLAYER1;
 				Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.BOMB1;
+				Map.board[++Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.PLAYER1;
 			}else if(Map.board[Map.PLAYERPOSY+1][Map.PLAYERPOSX] == Map.EXPLOSION){
 				drawing.Popup.youLost();
 			}else{
@@ -46,8 +46,8 @@ public class Movement {
 	static public void goRight(){
 		if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX+1] == Map.FREE){
 			if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] == Map.PLAYERANDBOMB){
-				Map.board[Map.PLAYERPOSY][++Map.PLAYERPOSX] = Map.PLAYER1; 
 				Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.BOMB1;
+				Map.board[Map.PLAYERPOSY][++Map.PLAYERPOSX] = Map.PLAYER1; 
 			}else if(Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX+1] == Map.EXPLOSION){
 				drawing.Popup.youLost();
 			}else{
@@ -70,8 +70,8 @@ public class Movement {
 	static public void goLeft2(){
 		if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX-1] == Map.FREE){
 			if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] == Map.PLAYERANDBOMB2){
-				Map.board[Map.PLAYER2POSY][--Map.PLAYER2POSX] = Map.PLAYER2;
 				Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.BOMB2;
+				Map.board[Map.PLAYER2POSY][--Map.PLAYER2POSX] = Map.PLAYER2;
 			}else if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] == Map.EXPLOSION){
 				drawing.Popup.youWon();
 			}else{
@@ -83,8 +83,8 @@ public class Movement {
 	static public void goUp2(){
 		if(Map.board[Map.PLAYER2POSY-1][Map.PLAYER2POSX] == Map.FREE){
 			if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] == Map.PLAYERANDBOMB2){
-				Map.board[--Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.PLAYER2;
 				Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.BOMB2;
+				Map.board[--Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.PLAYER2;
 			}else if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] == Map.EXPLOSION){
 				drawing.Popup.youWon();
 			}else{
@@ -96,8 +96,8 @@ public class Movement {
 	static public void goDown2(){
 		if(Map.board[Map.PLAYER2POSY+1][Map.PLAYER2POSX] == Map.FREE){
 			if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] == Map.PLAYERANDBOMB2){
-				Map.board[++Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.PLAYER2;
 				Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.BOMB2;
+				Map.board[++Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.PLAYER2;
 			}else if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] == Map.EXPLOSION){
 				drawing.Popup.youWon();
 			}else{
@@ -109,8 +109,8 @@ public class Movement {
 	static public void goRight2(){
 		if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX+1] == Map.FREE){
 			if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] == Map.PLAYERANDBOMB2){
-				Map.board[Map.PLAYER2POSY][++Map.PLAYER2POSX] = Map.PLAYER2;
 				Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.BOMB2;
+				Map.board[Map.PLAYER2POSY][++Map.PLAYER2POSX] = Map.PLAYER2;
 			}else if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] == Map.EXPLOSION){
 				drawing.Popup.youWon();
 			}else{	

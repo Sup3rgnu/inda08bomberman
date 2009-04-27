@@ -15,7 +15,7 @@ abstract public class Map {
 	public final static int PLAYERANDBOMB2 = 7;
 
 	public final static int HEIGHT = 16; // Height of the board
-	public final static int WIDTH = 16; // Width of the board
+	public final static int WIDTH = 16; // Width of the boarda
 
 	public static int PLAYERPOSY = 1; // Start pos on the board, not a conflict with CRATE = 1 
 	public static int PLAYERPOSX = 1;
@@ -184,7 +184,7 @@ abstract public class Map {
 		}
 
 		for(int i = bombposx; i >= bombposx-BOMBRADIUS; i--){		 
-			if(i<=1 || Map.board[bombposy][i] == Map.UNBREAKABLE){
+			if(i<=0 || Map.board[bombposy][i] == Map.UNBREAKABLE){
 				break;
 			}else if(Map.board[bombposy][i] == Map.PLAYER2){
 				drawing.Popup.youWon();
@@ -214,7 +214,7 @@ abstract public class Map {
 		}
 
 		for(int i = bombposy; i >= bombposy-BOMBRADIUS; i--){		 
-			if(i<=1 || Map.board[i][bombposx] == Map.UNBREAKABLE){
+			if(i<=0 || Map.board[i][bombposx] == Map.UNBREAKABLE){
 				break;
 			}else if(Map.board[i][bombposx] == Map.PLAYER2){
 				drawing.Popup.youWon();
