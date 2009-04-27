@@ -70,7 +70,7 @@ public class Movement {
 	static public void goLeft2(){
 		if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX-1] == Map.FREE){
 			if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] == Map.PLAYERANDBOMB2){
-				Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.BOMB2;
+				Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.BOMB2;
 				Map.board[Map.PLAYER2POSY][--Map.PLAYER2POSX] = Map.PLAYER2;
 			}else if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] == Map.EXPLOSION){
 				drawing.Popup.youWon();
@@ -83,7 +83,7 @@ public class Movement {
 	static public void goUp2(){
 		if(Map.board[Map.PLAYER2POSY-1][Map.PLAYER2POSX] == Map.FREE){
 			if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] == Map.PLAYERANDBOMB2){
-				Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.BOMB2;
+				Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.BOMB2;
 				Map.board[--Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.PLAYER2;
 			}else if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] == Map.EXPLOSION){
 				drawing.Popup.youWon();
@@ -96,7 +96,7 @@ public class Movement {
 	static public void goDown2(){
 		if(Map.board[Map.PLAYER2POSY+1][Map.PLAYER2POSX] == Map.FREE){
 			if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] == Map.PLAYERANDBOMB2){
-				Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.BOMB2;
+				Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.BOMB2;
 				Map.board[++Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.PLAYER2;
 			}else if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] == Map.EXPLOSION){
 				drawing.Popup.youWon();
@@ -109,7 +109,7 @@ public class Movement {
 	static public void goRight2(){
 		if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX+1] == Map.FREE){
 			if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] == Map.PLAYERANDBOMB2){
-				Map.board[Map.PLAYERPOSY][Map.PLAYERPOSX] = Map.BOMB2;
+				Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] = Map.BOMB2;
 				Map.board[Map.PLAYER2POSY][++Map.PLAYER2POSX] = Map.PLAYER2;
 			}else if(Map.board[Map.PLAYER2POSY][Map.PLAYER2POSX] == Map.EXPLOSION){
 				drawing.Popup.youWon();

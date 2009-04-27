@@ -187,6 +187,7 @@ abstract public class Map {
 			if(i<=0 || Map.board[bombposy][i] == Map.UNBREAKABLE){
 				break;
 			}else if(Map.board[bombposy][i] == Map.PLAYER2){
+				
 				drawing.Popup.youWon();
 			}else if(Map.board[bombposy][i] == Map.PLAYER1){
 				drawing.Popup.youLost();
