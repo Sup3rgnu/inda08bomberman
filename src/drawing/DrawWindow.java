@@ -74,17 +74,7 @@ public class DrawWindow extends JFrame {
        	Image playerandbomb = ImageIO.read(new File("graphics/bomb1.bmp"));
         Image playerandbomb2 = ImageIO.read(new File("graphics/bomb2.bmp"));
         Image explosion = ImageIO.read(new File("graphics/explosion.bmp"));
-        
-        //Ritar bara ut bilder för att kunna kolla på
-        g2d.drawImage(player1, 1*32, 1*32, 32, 32,this);
-        g2d.drawImage(player2, 1*32, 2*32, 32, 32,this);
-        g2d.drawImage(explosion, 2*32, 1*32, 32, 32,this);
-        g2d.drawImage(bomb1, 3*32, 1*32, 32, 32,this);
-        g2d.drawImage(explosion, 4*32, 1*32, 32, 32,this);
-        g2d.drawImage(explosion, 1*32, 3*32, 32, 32,this);
-        g2d.drawImage(bomb2, 1*32, 4*32, 32, 32,this);
-        g2d.drawImage(explosion, 1*32, 5*32, 32, 32,this);
-	        	
+           	
 		for(int j=0; j <mapping.Map.HEIGHT; j++){
 			for(int i=0; i < mapping.Map.WIDTH; i++){
 				if(mapping.Map.board[j][i] == mapping.Map.UNBREAKABLE){
