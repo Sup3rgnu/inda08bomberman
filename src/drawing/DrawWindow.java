@@ -12,7 +12,10 @@ import javax.swing.JFrame;
 import userInputHandling.KeyHandler;
 
 
-
+/**
+ * The class DrawWidnow creates the graphic window to the game.
+ * It draws a canvas window and all the textures.
+ */
 public class DrawWindow extends JFrame {
 	
 	public static DrawWindow dw = new DrawWindow();
@@ -24,7 +27,10 @@ public class DrawWindow extends JFrame {
 	
 	Canvas canvas; // Our drawing component
 	
-
+	/**
+	 * The constructor.
+	 * Draw the canvas window.
+	 */
 	public DrawWindow() {
 		
 		/* Start a key listener */
@@ -40,7 +46,10 @@ public class DrawWindow extends JFrame {
     pack();
        
     }
-	
+	/**
+	 * Draw the canvas background color and all the textures for the Map.
+	 * @throws IOException
+	 */
 	public void run() throws IOException {
   
     canvas.createBufferStrategy( 2 );
@@ -52,7 +61,7 @@ public class DrawWindow extends JFrame {
     
     Graphics graphics = getGraphics();
     Graphics2D g2d = (Graphics2D) getGraphics();
-    Color background = Color.GREEN.darker();
+    Color background = Color.GREEN.darker(); //Canvas background color.
     
     
       try {
@@ -61,7 +70,6 @@ public class DrawWindow extends JFrame {
         g2d = bi.createGraphics();
         g2d.setColor( background );
         g2d.fillRect( 0, 0, WIDTH, HEIGHT );
-        
         
          
         Image crate = ImageIO.read(new File("graphics/crate.gif"));
@@ -74,7 +82,8 @@ public class DrawWindow extends JFrame {
        	Image playerandbomb = ImageIO.read(new File("graphics/bomb1.bmp"));
         Image playerandbomb2 = ImageIO.read(new File("graphics/bomb2.bmp"));
         Image explosion = ImageIO.read(new File("graphics/explosion.bmp"));
-           	
+        
+        //Check all the raws and columns in the Map and draw the texture.
 		for(int j=0; j <mapping.Map.HEIGHT; j++){
 			for(int i=0; i < mapping.Map.WIDTH; i++){
 				if(mapping.Map.board[j][i] == mapping.Map.UNBREAKABLE){
@@ -99,11 +108,9 @@ public class DrawWindow extends JFrame {
 					g2d.drawImage(explosion, i*32, j*32, 32, 32,this);
 				}
 			}
-			//System.out.println();
+			
 		}
-		//g2d.drawImage(crate, 0, 0, 32, 32,this);
-        
-     
+		
         // Blit image and flip...
         graphics = buffer.getDrawGraphics();
         graphics.drawImage(bi, 0, 0, this);
