@@ -52,7 +52,7 @@ public class DrawWindow extends JFrame {
     
     Graphics graphics = getGraphics();
     Graphics2D g2d = (Graphics2D) getGraphics();
-    Color background = Color.PINK;
+    Color background = Color.GREEN.darker();
     
     
       try {
@@ -62,37 +62,35 @@ public class DrawWindow extends JFrame {
         g2d.setColor( background );
         g2d.fillRect( 0, 0, WIDTH, HEIGHT );
         
-        // Draw help
-        g2d.setColor(  Color.BLACK );
         
-        g2d.drawString( "--------------------------", 250, 200 );
-        g2d.drawString( "New Game", 250, 210 );
-        g2d.drawString( "Bomberman.exe", 250, 220 );
-        g2d.drawString( "Press Q to disconnect", 250, 230 );
-        g2d.drawString( "--------------------------", 250, 240 );
-
-        // Cajs tester
-        //Image test = Toolkit.getDefaultToolkit().getImage("bombe/bombe0.gif");
          
         Image crate = ImageIO.read(new File("graphics/crate.gif"));
-        Image stone = ImageIO.read(new File("graphics/stone.gif"));
-        Image grass = ImageIO.read(new File("graphics/grass.gif"));
-        Image player1 = ImageIO.read(new File("graphics/player1.gif"));
-        Image player2 = ImageIO.read(new File("graphics/player2.gif"));
-        Image bomb1 = ImageIO.read(new File("graphics/bomb1.gif"));
-        Image bomb2 = ImageIO.read(new File("graphics/bomb2.gif"));
-        Image playerandbomb = ImageIO.read(new File("graphics/bomb1.gif"));
-        Image playerandbomb2 = ImageIO.read(new File("graphics/bomb2.gif"));
+        Image stone = ImageIO.read(new File("graphics/stone.bmp"));
+        //Image grass = ImageIO.read(new File("graphics/grass.gif"));
+        Image player1 = ImageIO.read(new File("graphics/player1.bmp"));
+        Image player2 = ImageIO.read(new File("graphics/player2.bmp"));
+        Image bomb1 = ImageIO.read(new File("graphics/bomb1.bmp"));
+        Image bomb2 = ImageIO.read(new File("graphics/bomb2.bmp"));
+       	Image playerandbomb = ImageIO.read(new File("graphics/bomb1.bmp"));
+        Image playerandbomb2 = ImageIO.read(new File("graphics/bomb2.bmp"));
         Image explosion = ImageIO.read(new File("graphics/explosion.bmp"));
         
-
+        //Ritar bara ut bilder för att kunna kolla på
+        g2d.drawImage(player1, 1*32, 1*32, 32, 32,this);
+        g2d.drawImage(player2, 1*32, 2*32, 32, 32,this);
+        g2d.drawImage(explosion, 2*32, 1*32, 32, 32,this);
+        g2d.drawImage(bomb1, 3*32, 1*32, 32, 32,this);
+        g2d.drawImage(explosion, 4*32, 1*32, 32, 32,this);
+        g2d.drawImage(explosion, 1*32, 3*32, 32, 32,this);
+        g2d.drawImage(bomb2, 1*32, 4*32, 32, 32,this);
+        g2d.drawImage(explosion, 1*32, 5*32, 32, 32,this);
 	        	
 		for(int j=0; j <mapping.Map.HEIGHT; j++){
 			for(int i=0; i < mapping.Map.WIDTH; i++){
 				if(mapping.Map.board[j][i] == mapping.Map.UNBREAKABLE){
 					g2d.drawImage(stone, i*32, j*32, 32, 32,this);
-				} else if(mapping.Map.board[j][i] == mapping.Map.FREE){
-					g2d.drawImage(grass, i*32, j*32, 32, 32,this);
+				//} else if(mapping.Map.board[j][i] == mapping.Map.FREE){
+				//	g2d.drawImage(grass, i*32, j*32, 32, 32,this);
 				} else if(mapping.Map.board[j][i] == mapping.Map.PLAYER1){
 					g2d.drawImage(player1, i*32, j*32, 32, 32,this);
 				} else if(mapping.Map.board[j][i] == mapping.Map.PLAYER2){
@@ -106,8 +104,8 @@ public class DrawWindow extends JFrame {
 				} else if(mapping.Map.board[j][i] == mapping.Map.PLAYERANDBOMB){
 					g2d.drawImage(playerandbomb, i*32, j*32, 32, 32,this);
 				} else if(mapping.Map.board[j][i] == mapping.Map.PLAYERANDBOMB2){
-					g2d.drawImage(playerandbomb2, i*32, j*32, 32, 32,this);
-				}  else if(mapping.Map.board[j][i] == mapping.Map.EXPLOSION){
+					g2d.drawImage(playerandbomb2, i*32, j*32, 32, 32,this);	
+				} else if(mapping.Map.board[j][i] == mapping.Map.EXPLOSION){
 					g2d.drawImage(explosion, i*32, j*32, 32, 32,this);
 				}
 			}
@@ -137,7 +135,7 @@ public class DrawWindow extends JFrame {
       	}
     }
 		
-	public static void DrawWindowmain() {
+	public static void DrawWindowmain() throws IOException {
 	
 	dw.setTitle( "Bomberman" );
 	dw.setVisible( true );
